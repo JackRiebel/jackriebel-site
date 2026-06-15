@@ -157,8 +157,40 @@
     }
   }
 
+  function mountBackToTop() {
+    if (!document.body || !document.body.classList.contains('article-page')) return;
+    if (document.querySelector('[data-back-to-top]')) return;
+
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = 'back-to-top';
+    button.dataset.backToTop = 'true';
+    button.textContent = 'Top';
+    button.setAttribute('aria-label', 'Back to top');
+    button.setAttribute('title', 'Back to top');
+
+    const reducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    function updateVisibility() {
+      button.classList.toggle('is-visible', window.scrollY > 640);
+    }
+
+    button.addEventListener('click', function () {
+      window.scrollTo({
+        top: 0,
+        behavior: reducedMotion ? 'auto' : 'smooth',
+      });
+    });
+
+    window.addEventListener('scroll', updateVisibility, { passive: true });
+    window.addEventListener('resize', updateVisibility);
+    document.body.appendChild(button);
+    updateVisibility();
+  }
+
   function mountToggle() {
     mountArticleTopbar();
+    mountBackToTop();
 
     const targets = [];
     const siteTopbar = document.querySelector('.site-topbar');
