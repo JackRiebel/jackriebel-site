@@ -134,9 +134,9 @@
     const nav = document.createElement('div');
     nav.className = 'site-nav';
     nav.appendChild(createSiteLink('index.html', 'About', false));
-    nav.appendChild(createSiteLink('blogs.html', 'Blogs', true));
-    nav.appendChild(createSiteLink('repos.html', 'Repos', false));
-    nav.appendChild(createSiteLink('connect.html', 'Connect', false));
+    nav.appendChild(createSiteLink('blogs/', 'Blogs', true));
+    nav.appendChild(createSiteLink('repos/', 'Repos', false));
+    nav.appendChild(createSiteLink('connect/', 'Connect', false));
 
     const github = document.createElement('a');
     github.className = 'site-ghost-btn';

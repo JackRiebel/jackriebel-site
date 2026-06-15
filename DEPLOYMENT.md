@@ -31,9 +31,9 @@ GitHub repository: `JackRiebel/jackriebel-site`
 4. Enable HTTPS.
 5. Verify these URLs:
    - `https://jackriebel.com/`
-   - `https://jackriebel.com/blogs.html`
-   - `https://jackriebel.com/repos.html`
-   - `https://jackriebel.com/connect.html`
+   - `https://jackriebel.com/blogs/`
+   - `https://jackriebel.com/repos/`
+   - `https://jackriebel.com/connect/`
    - `https://jackriebel.com/cisco-live-2026-midmarket.html`
    - `https://jackriebel.com/mcp-c-suite-to-noc.html`
    - `https://jackriebel.com/agent-shadow-it.html`
