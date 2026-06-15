@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MCP: From C-Suite to NOC</title>
+
+  <!-- Open Graph / LinkedIn / Social Share -->
+  <meta property="og:title" content="MCP: From C-Suite to NOC">
+  <meta property="og:description" content="How the Model Context Protocol is transforming NOC/SOC operations and giving executives direct access to infrastructure intelligence. Data-driven analysis with 15+ cited sources.">
+  <meta property="og:image" content="https://jackriebel.github.io/mcp-c-suite-to-noc/MCP.png">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://jackriebel.github.io/mcp-c-suite-to-noc/mcp-c-suite-to-noc.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="MCP: From C-Suite to NOC">
+  <meta name="twitter:description" content="How the Model Context Protocol is transforming NOC/SOC operations and giving executives direct access to infrastructure intelligence.">
+  <meta name="twitter:image" content="https://jackriebel.github.io/mcp-c-suite-to-noc/MCP.png">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <div class="reading-progress" id="readingProgress"></div>
+
+  <!-- ===================== HERO ===================== -->
+  <section class="hero">
+    <h1>MCP: From C-Suite to NOC</h1>
+    <p class="subtitle">For years, the data inside your security and network tools has only been useful to engineers. The Model Context Protocol (MCP) changes that — one open standard lets AI talk to your entire stack, giving executives plain-English answers and giving your NOC and SOC the speed to match the volume of threats they face.</p>
+
+    <div class="author-byline">
+      <img class="author-photo" src="Screenshot%202026-03-25%20at%201.28.57%E2%80%AFPM%20Large.jpeg" alt="Jack Riebel">
+      <div class="author-info">
+        <span class="author-name">Jack Riebel</span>
+        <span class="author-date">April 2026</span>
+      </div>
+    </div>
+
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <span class="hero-stat-value">2,992</span>
+        <span class="hero-stat-label">Alerts/Day per SOC</span>
+      </div>
+      <div class="hero-stat">
+        <span class="hero-stat-value">82%</span>
+        <span class="hero-stat-label">Illustrative Response Reduction</span>
+      </div>
+      <div class="hero-stat">
+        <span class="hero-stat-value">4.8M</span>
+        <span class="hero-stat-label">Cyber Workforce Gap (2024)</span>
+      </div>
+      <div class="hero-stat">
+        <span class="hero-stat-value">97M</span>
+        <span class="hero-stat-label">Monthly MCP SDK Downloads</span>
+      </div>
+      <div class="hero-stat">
+        <span class="hero-stat-value">$1.9M</span>
+        <span class="hero-stat-label">Saved per Breach with AI</span>
+      </div>
+    </div>
+
+    <div class="hero-sources">
+      Sources: <a href="#methodology">Vectra AI</a> · <a href="#methodology">ISC2</a> · <a href="#methodology">IBM</a> · <a href="#methodology">Anthropic</a>
+    </div>
+  </section>
+
+  <!-- ===================== STICKY NAV ===================== -->
+  <nav class="sticky-nav">
+    <div class="nav-inner">
+      <a href="#what-is-mcp" class="nav-link">What Is MCP</a>
+      <a href="#beyond-the-noc" class="nav-link">Beyond the NOC</a>
+      <a href="#the-problem" class="nav-link">The Problem</a>
+      <a href="#what-mcp-changes" class="nav-link">What It Changes</a>
+      <a href="#adoption" class="nav-link">Adoption</a>
+      <a href="#what-to-do" class="nav-link">What To Do</a>
+      <a href="#methodology" class="nav-link">Methodology</a>
+    </div>
+  </nav>
+
+  <!-- ===================== WHAT IS MCP ===================== -->
+  <section id="what-is-mcp" class="section alt">
+   <div class="container">
+    <h2>What Is MCP?</h2>
+    <p class="section-desc">The Model Context Protocol is an open standard — created by Anthropic in late 2024 and now governed by the Agentic AI Foundation (AAIF) under the Linux Foundation — that gives AI models a single, universal way to connect to any tool.</p>
+
+    <p class="section-prose">The easiest way to understand MCP is to think about USB-C. Before USB-C, every device needed its own cable — Lightning for your iPhone, Micro-USB for your headphones, a barrel connector for your laptop, something proprietary for your camera. Your drawer was a mess of incompatible cables. USB-C replaced all of that with one universal standard. MCP does the same thing for AI integrations.</p>
+
+    <div class="chart-card wide">
+      <h3>Now Apply That to AI</h3>
+      <p class="chart-desc">5 AI models. 6 enterprise tools. Toggle to see what one standard changes.</p>
+      <div class="diagram-wrapper">
+        <canvas id="mcpDiagram"></canvas>
+      </div>
+      <div class="diagram-controls">
+        <button class="diagram-btn active-red" data-view="before">Without MCP: 30 Integrations</button>
+        <button class="diagram-btn" data-view="after">With MCP: 1 Standard</button>
+      </div>
+      <div class="diagram-legend">
+        <span><span class="legend-dot" style="background:var(--cyan)"></span> AI Models</span>
+        <span><span class="legend-dot" style="background:var(--purple)"></span> Your Tools</span>
+        <span><span class="legend-dot" style="background:var(--green)"></span> MCP</span>
+      </div>
+    </div>
+
+    <p class="section-prose">Without MCP, every AI application or agent framework needs its own custom integration pattern for every tool in your stack. Five AI front ends times six tools equals 30 bespoke connectors to build and maintain. With MCP, supported AI clients can use the same server interface for tools like Splunk, ThousandEyes, ServiceNow, XDR, Duo, and Webex. That does not make every model automatically compatible; it gives the ecosystem a common protocol so supported clients and servers can interoperate with far less custom work.</p>
+
+    <p class="section-prose">How it works in practice: MCP uses a client-server architecture. Each tool vendor publishes an MCP "server" — a lightweight wrapper that exposes the tool's capabilities through a standardized interface. AI applications run MCP "clients" that discover and connect to these servers. The protocol defines three primitives: <strong>tools</strong> (actions the AI can execute), <strong>resources</strong> (data the AI can read), and <strong>prompts</strong> (reusable interaction templates). A single MCP server for Splunk can be reused by multiple MCP-capable clients and agent frameworks without every team writing a separate Splunk integration.</p>
+
+    <p class="section-prose">And here's what makes this practical at scale: when you connect to a vendor-supported MCP server like ThousandEyes or Splunk, much of the integration maintenance can move to the product side. Your team still has to manage authentication, permissions, versioning, testing, and change control, but you are no longer building every integration path from scratch.</p>
+
+    <p class="section-prose">That's the theory. But what does it actually mean for your organization? Let's start with the outcome that affects every level of leadership — and then dig into the operational problems MCP solves on the ground.</p>
+   </div>
+  </section>
+
+  <!-- ===================== BEYOND THE NOC ===================== -->
+  <section id="beyond-the-noc" class="section">
+   <div class="container">
+    <h2>Beyond the NOC: MCP as a Business Intelligence Layer</h2>
+    <p class="section-desc">MCP doesn't just make engineers faster. It turns tools that only technical teams could use into intelligence sources that anyone in the organization can tap into.</p>
+
+    <p class="section-prose">Right now, your network and security teams sit on a goldmine of real-time data — how your applications are performing, which offices are having issues, how your users are actually experiencing the technology you've invested in. But that data lives inside tools like Splunk, ThousandEyes, and Catalyst Center — platforms with interfaces designed for engineers. If you're not the person who knows how to write a search query or read a network map, that data might as well not exist. MCP changes that by letting AI do the translating.</p>
+
+    <p class="section-prose">Picture this: a CTO asks their AI assistant, "How is the new AI platform rollout going across our regional offices?" Behind the scenes, the AI pulls ThousandEyes test results to check application performance and availability at every office running the new platform. It looks at usage logs to see how many people are actually using it and whether they're hitting errors. It checks the help desk for any open support tickets. Then it comes back with a plain-English answer: <em>"The rollout is live in 14 of 18 offices. ThousandEyes is showing elevated response times in three sites — Dallas, Munich, and Singapore. Usage is at 73% of where we expected it to be. Two support tickets are open for the Singapore office."</em></p>
+
+    <p class="section-prose">No dashboards to learn. No asking an engineer to pull a report and send it over by end of day. The executive just asks a question and gets an answer — pulled from the same systems the technical team uses every day.</p>
+
+    <p class="section-prose">This works for anyone in the organization. A VP of Sales asks "Which regions had the most customer-impacting issues last quarter?" and gets an answer in seconds. A CFO asks "What's our infrastructure cost per active user by region?" and the AI pulls the numbers from billing, usage data, and network performance in one pass. A CISO asks "Are we meeting our compliance requirements across the systems that handle sensitive data?" and gets a cross-platform answer instead of waiting weeks for a manual audit.</p>
+
+    <p class="section-prose">This is the bigger story. MCP doesn't just save your operations team time — it turns the data they already collect into a strategic asset that the entire leadership team can use. The tools don't change. The data doesn't change. What changes is that anyone can now ask a question and get an answer, regardless of their technical background.</p>
+   </div>
+  </section>
+
+  <!-- ===================== THE PROBLEM ===================== -->
+  <section id="the-problem" class="section alt">
+   <div class="container">
+    <h2>Why NOCs and SOCs Are Drowning</h2>
+    <p class="section-desc">The security operations center was designed for a world with fewer tools, fewer alerts, and more people. That world no longer exists.</p>
+
+    <p class="section-prose">Here's what a typical SOC looks like today: Vectra AI's 2026 State of Threat Detection and Response report says organizations receive an average of <strong>2,992 security alerts per day</strong> <span class="cite">(Vectra AI, 2026 State of Threat Detection)</span>. Of those, <strong>63% still go unaddressed</strong> <span class="cite">(Vectra AI 2026)</span>. The false positive rate is staggering — Microsoft and Omdia's 2026 State of the SOC report puts it at 46%, and the SANS Institute's 2025 Detection &amp; Response Survey found that 73% of organizations cite false positives as their top challenge <span class="cite">(Microsoft/Omdia 2026; SANS 2025)</span>. The signal-to-noise ratio is brutal, and it's getting worse.</p>
+
+    <p class="section-prose">Meanwhile, the tools designed to help have created their own problem. A small company runs around 15 security and network tools. Large enterprises with 10,000+ employees average 46 <span class="cite">(VentureBeat 2025)</span>. Every one of those tools — your SIEM, network monitor, endpoint protection, identity platform, ticketing system — has its own console, its own alert format, its own login. Analysts toggle between applications roughly <strong>1,200 times per day</strong> <span class="cite">(Harvard Business Review 2022)</span>, and research shows it takes 9.5 minutes to regain full focus after each switch <span class="cite">(Qatalog/Cornell University)</span>. That means about 40% of an analyst's productive time evaporates into context switching — costing U.S. businesses an estimated $450 billion annually <span class="cite">(Moveworks)</span>.</p>
+
+    <div class="chart-row">
+      <div class="chart-card">
+        <h3>Alert Fatigue</h3>
+        <p class="chart-desc">SOC analysts face thousands of alerts daily — most are noise</p>
+        <canvas id="alertFatigueChart"></canvas>
+      </div>
+      <div class="chart-card">
+        <h3>Tool Sprawl by Organization Size</h3>
+        <p class="chart-desc">More tools doesn't mean better security — it means more context switches</p>
+        <canvas id="toolSprawlChart"></canvas>
+      </div>
+    </div>
+
+    <p class="section-prose">And then there's the staffing crisis. ISC2's 2024 Cybersecurity Workforce Study estimated a global workforce gap of <strong>4.8 million professionals</strong>, up 19% year over year. ISC2's 2025 study shifted emphasis from a headcount estimate to skills pressure, which makes the safer takeaway clear: security teams are still constrained, but the most current ISC2 framing is skills and capability, not a fresh 2025 gap number. Of the analysts who are working, 71% report burnout <span class="cite">(Tines, Voice of the SOC Analyst)</span> and 64% say they're likely to change jobs within the year <span class="cite">(Tines/Dark Reading)</span>. Organizations with severe staffing shortages pay an extra $1.57 million per breach compared to those with adequate teams <span class="cite">(IBM, 2025 Cost of a Data Breach)</span>.</p>
+
+    <p class="section-prose">For executives, this isn't an IT problem — it's a business risk problem. Every unfilled position is a gap in your security posture. Every burned-out analyst who quits takes institutional knowledge with them. Every alert that goes uninvestigated is a potential breach that could cost millions and land in a board presentation. The people protecting your organization are overwhelmed, understaffed, and working with tools that make their jobs harder instead of easier. That's the environment MCP walks into.</p>
+
+   </div>
+  </section>
+
+  <!-- ===================== WHAT MCP CHANGES ===================== -->
+  <section id="what-mcp-changes" class="section">
+   <div class="container">
+    <h2>What MCP Changes</h2>
+    <p class="section-desc">MCP doesn't replace your tools — it connects them. Here's what that looks like in practice.</p>
+
+    <p class="section-prose">Consider a typical security incident. Today, an analyst has to hop through seven different tools: check Splunk for alerts, validate traffic in ThousandEyes, inspect endpoints in Cisco XDR, verify credentials in Duo, create a ticket in ServiceNow, research context in a knowledge base, and notify the team on Webex. Based on the average 9.5-minute refocus time per tool switch <span class="cite">(Qatalog/Cornell)</span>, that's roughly 67 minutes and seven context switches — each one breaking focus and adding latency.</p>
+
+    <p class="section-prose">In the illustrative MCP workflow below, an AI agent queries those tools through a single protocol. The analyst gets a correlated summary in about 8 minutes, reviews it, approves the action, and closes the incident. Total modeled time: 12 minutes. That's an 82% reduction from the 67-minute context-switching scenario above. The human stays in the loop for decision-making — the AI handles the tedious cross-referencing that burns time and attention.</p>
+
+    <div class="chart-card wide">
+      <h3>Illustrative Incident Workflow: Before vs. After MCP</h3>
+      <div class="workflow-compare">
+        <div class="workflow-col">
+          <h4><span style="color:var(--red)">Without MCP</span> — 67 minutes</h4>
+          <div class="workflow-step">
+            <span class="step-num" style="background:rgba(248,113,113,0.2);color:var(--red)">1</span>
+            <div>
+              <strong>Splunk</strong> — Check alerts
+              <span class="step-time">~10 min</span>
+            </div>
+          </div>
+          <div class="workflow-step">
+            <span class="step-num" style="background:rgba(248,113,113,0.2);color:var(--red)">2</span>
+            <div>
+              <strong>ThousandEyes</strong> — Validate traffic
+              <span class="step-time">~10 min</span>
+            </div>
+          </div>
+          <div class="workflow-step">
+            <span class="step-num" style="background:rgba(248,113,113,0.2);color:var(--red)">3</span>
+            <div>
+              <strong>Cisco XDR</strong> — Check endpoints
+              <span class="step-time">~10 min</span>
+            </div>
+          </div>
+          <div class="workflow-step">
+            <span class="step-num" style="background:rgba(248,113,113,0.2);color:var(--red)">4</span>
+            <div>
+              <strong>Cisco Duo</strong> — Verify credentials
+              <span class="step-time">~8 min</span>
+            </div>
+          </div>
+          <div class="workflow-step">
+            <span class="step-num" style="background:rgba(248,113,113,0.2);color:var(--red)">5</span>
+            <div>
+              <strong>ServiceNow</strong> — Create ticket
+              <span class="step-time">~10 min</span>
+            </div>
+          </div>
+          <div class="workflow-step">
+            <span class="step-num" style="background:rgba(248,113,113,0.2);color:var(--red)">6</span>
+            <div>
+              <strong>Knowledge Base</strong> — Research context
+              <span class="step-time">~10 min</span>
+            </div>
+          </div>
+          <div class="workflow-step">
+            <span class="step-num" style="background:rgba(248,113,113,0.2);color:var(--red)">7</span>
+            <div>
+              <strong>Webex</strong> — Notify team
+              <span class="step-time">~9 min</span>
+            </div>
+          </div>
+          <div class="workflow-total" style="background:rgba(248,113,113,0.1);color:var(--red)">Total: 7 tool switches &bull; 67 minutes</div>
+        </div>
+
+        <div class="workflow-col">
+          <h4><span style="color:var(--green)">With MCP</span> — 12 minutes</h4>
+          <div class="workflow-step">
+            <span class="step-num" style="background:rgba(52,211,153,0.2);color:var(--green)">1</span>
+            <div>
+              <strong>AI Agent (via MCP)</strong> — Correlates all sources automatically
+              <span class="step-time">~8 min</span>
+            </div>
+          </div>
+          <div class="workflow-step">
+            <span class="step-num" style="background:rgba(52,211,153,0.2);color:var(--green)">2</span>
+            <div>
+              <strong>Human Review</strong> — Approve action &amp; close
+              <span class="step-time">~4 min</span>
+            </div>
+          </div>
+          <div class="workflow-total" style="background:rgba(52,211,153,0.1);color:var(--green)">Total: 2 steps &bull; 12 minutes &bull; 82% faster</div>
+        </div>
+      </div>
+    </div>
+
+    <p class="section-prose">The financial impact is well-documented. Organizations using AI and automation extensively saved <strong>$1.9 million per breach</strong> and resolved incidents <strong>80 days faster</strong> than those without <span class="cite">(IBM, 2025 Cost of a Data Breach Report)</span>. That's nearly $2 million in reduced costs per major incident, and almost three months of reduced exposure window. Across industries, AI-assisted operations cut mean time to resolution by roughly a third.</p>
+
+    <p class="section-prose">Yet most of that value is still untapped. AI can theoretically automate 75-95% of common NOC/SOC tasks — log analysis, alert triage, config validation, traffic monitoring — but actual adoption sits between 12% and 35% depending on the task <span class="cite">(Anthropic Economic Index; industry estimates)</span>. The gap between what's possible and what's deployed is where the ROI lives, and MCP is the fastest way to close it.</p>
+
+    <p class="section-prose">And MCP's value extends well beyond incident response. An AI agent connected to the Splunk MCP server can run natural-language searches across your security logs — "show me all failed login attempts from external IPs in the last 24 hours" — without anyone writing a line of SPL <span class="cite">(CiscoDevNet — Splunk MCP server)</span>. The ThousandEyes MCP server can run on-demand tests, detect anomalies in network performance, and trace the full network path when a remote office reports slow application performance <span class="cite">(CiscoDevNet — ThousandEyes MCP server)</span>. Cisco's SD-WAN community MCP server exposes 39 tools for managing your overlay network through AI. When these servers work together through a single protocol, workflows that used to take hours of cross-referencing across separate consoles can be correlated in minutes.</p>
+
+    <div class="callout-banner">
+      <div class="cb-title">The speed tax is real</div>
+      <div class="cb-body">Financial services lose <strong>$1.5 million per hour</strong> of downtime. Healthcare loses $636K. Even energy and utilities lose $250K <span class="cite">(Erwood Group 2025; industry estimates)</span>. Every minute shaved off incident response directly translates to dollars saved — and MCP is how you shave those minutes.</div>
+    </div>
+   </div>
+  </section>
+
+  <!-- ===================== ADOPTION ===================== -->
+  <section id="adoption" class="section alt">
+   <div class="container">
+    <h2>MCP Is Already Everywhere</h2>
+    <p class="section-desc">In just 16 months, MCP went from an Anthropic protocol launch to a Linux Foundation project adopted or supported by many major AI platforms, cloud providers, and developer tools.</p>
+
+    <p class="section-prose">OpenAI, Google, Microsoft, AWS, and other major ecosystem players announced MCP support or published MCP-related services during the protocol's first year. By December 2025, Anthropic donated the protocol to the Linux Foundation, co-founding the Agentic AI Foundation with Block and OpenAI <span class="cite">(AAIF, Dec 2025)</span>. Combined npm and PyPI SDK downloads were reported at <strong>97 million per month</strong> by March 2026 <span class="cite">(npm + PyPI, Mar 2026)</span>.</p>
+
+    <div class="chart-card wide">
+      <h3>Reported SDK Downloads: 0 to 97 Million Monthly</h3>
+      <p class="chart-desc">Reported monthly npm + PyPI downloads of MCP SDKs</p>
+      <canvas id="sdkGrowthChart"></canvas>
+    </div>
+
+    <div class="chart-card wide">
+      <h3>MCP Adoption Timeline</h3>
+      <p class="chart-desc">From side project to industry standard in 16 months</p>
+      <div class="h-timeline">
+        <div class="h-timeline-track"></div>
+        <div class="h-timeline-items">
+          <div class="h-tl-item">
+            <div class="h-tl-dot"></div>
+            <div class="h-tl-card">
+              <div class="h-tl-date">Sep 2024</div>
+              <div class="h-tl-title">SDKs Created</div>
+              <div class="h-tl-body">Python &amp; TypeScript repos on GitHub</div>
+            </div>
+          </div>
+          <div class="h-tl-item">
+            <div class="h-tl-dot"></div>
+            <div class="h-tl-card">
+              <div class="h-tl-date">Nov 2024</div>
+              <div class="h-tl-title">Public Launch</div>
+              <div class="h-tl-body">Anthropic launches MCP as open standard</div>
+            </div>
+          </div>
+          <div class="h-tl-item">
+            <div class="h-tl-dot"></div>
+            <div class="h-tl-card">
+              <div class="h-tl-date">Feb 2025</div>
+              <div class="h-tl-title">5M Downloads</div>
+              <div class="h-tl-body">1,000+ community servers built</div>
+            </div>
+          </div>
+          <div class="h-tl-item">
+            <div class="h-tl-dot"></div>
+            <div class="h-tl-card">
+              <div class="h-tl-date">Mar 2025</div>
+              <div class="h-tl-title">OpenAI Adopts</div>
+              <div class="h-tl-body">&ldquo;People love MCP&rdquo; &mdash; Sam Altman</div>
+            </div>
+          </div>
+          <div class="h-tl-item">
+            <div class="h-tl-dot"></div>
+            <div class="h-tl-card">
+              <div class="h-tl-date">Apr 2025</div>
+              <div class="h-tl-title">Google Adopts</div>
+              <div class="h-tl-body">Gemini models get MCP support</div>
+            </div>
+          </div>
+          <div class="h-tl-item">
+            <div class="h-tl-dot"></div>
+            <div class="h-tl-card">
+              <div class="h-tl-date">May 2025</div>
+              <div class="h-tl-title">Microsoft</div>
+              <div class="h-tl-body">Windows 11 + Azure integration</div>
+            </div>
+          </div>
+          <div class="h-tl-item">
+            <div class="h-tl-dot"></div>
+            <div class="h-tl-card">
+              <div class="h-tl-date">Nov 2025</div>
+              <div class="h-tl-title">AWS Joins</div>
+              <div class="h-tl-body">Open-source MCP servers published</div>
+            </div>
+          </div>
+          <div class="h-tl-item">
+            <div class="h-tl-dot"></div>
+            <div class="h-tl-card">
+              <div class="h-tl-date">Dec 2025</div>
+              <div class="h-tl-title">Linux Foundation</div>
+              <div class="h-tl-body">MCP donated to AAIF governance</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <p class="section-prose">The enterprise results are already showing up. Block reports employees saving <strong>50-75% of their time</strong> on common tasks using an MCP-powered AI agent called "Goose" that connects to GitHub, Jira, Snowflake, and Slack through a single interface — and Block co-founded the AAIF to help govern the standard <span class="cite">(Block / AAIF)</span>. Bloomberg deployed MCP across roughly 9,000 engineers, migrating from an internal protocol and collapsing what used to take days of integration work into minutes <span class="cite">(Bloomberg Engineering)</span>. Cisco has shipped official MCP servers for Splunk and ThousandEyes — enabling AI agents to run SPL queries, monitor network paths, and detect anomalies across Cisco's observability stack — with additional community servers for SD-WAN, XDR, Meraki, and Firewall Management Center <span class="cite">(CiscoDevNet; Cisco blogs)</span>. And AWS has published prescriptive deployment guidance and open-source MCP servers for anyone to use <span class="cite">(awslabs/mcp)</span>.</p>
+
+    <p class="section-prose">Beyond the tech giants, companies like Atlassian, Figma, Asana, and Cloudflare have all built or adopted MCP servers. The ecosystem now includes thousands of community-built MCP servers across multiple registries <span class="cite">(MCP Registry; PulseMCP)</span>. Official SDKs are available in 10 languages — TypeScript, Python, C#, Go, Java, Rust, Swift, Ruby, PHP, and Kotlin <span class="cite">(modelcontextprotocol.io)</span>.</p>
+
+    <p class="section-prose">Yet the broader market has barely started. Census Bureau data shows that even the most AI-forward sectors — publishing at 36% and information services at 27% — have massive room to grow. Manufacturing sits at 7%. Retail at 5%. Construction at 3%. The overall rate of AI in production across all U.S. industries is just 10% <span class="cite">(U.S. Census Bureau, Business Trends &amp; Outlook Survey, Sep 2025)</span>. The infrastructure is ready. The adoption hasn't caught up yet.</p>
+   </div>
+  </section>
+
+  <!-- ===================== WHAT TO DO ===================== -->
+  <section id="what-to-do" class="section">
+   <div class="container">
+    <h2>The Window Is Open — But Not for Long</h2>
+    <p class="section-desc">Most organizations are still early with AI in operations. The analysts say that changes fast.</p>
+
+    <p class="section-prose">The forecasts from Gartner and Forrester paint a clear picture of where this is heading. By the end of 2026, Gartner expects 30% of enterprises to be automating more than half their network activities — up from under 10% in 2023. They also predict 40% of enterprise apps will include task-specific AI agents, up from under 5% today. Looking further out, 70% of enterprises will deploy agentic AI for IT operations by 2029 <span class="cite">(Gartner, 2025&ndash;2029 predictions)</span>. On the vendor side, Forrester projects 30% of enterprise app vendors will ship MCP servers by the end of this year, and tech leaders are tripling their AIOps investments to combat rising technical debt — 75% of which is expected to reach moderate-to-high severity by 2026 <span class="cite">(Forrester, 2025&ndash;2026 predictions)</span>.</p>
+
+    <p class="section-prose">But here's the uncomfortable number: Gartner's 2026 agentic AI coverage says only <strong>17% of organizations have deployed AI agents to date</strong>, even as more than 60% expect to do so within the next two years <span class="cite">(Gartner, 2026)</span>. That means most organizations are still early, and the readiness gap is real. If you're reading this, you have a window — but it's the kind of window that closes quickly once your competitors start moving.</p>
+
+    <p class="section-prose">A common objection is security. MCP can be deployed with approval workflows, OAuth 2.1-based authorization for HTTP transports, and scoped permissions, but those controls depend on the client, server, identity provider, and implementation. Cisco's open-source <strong>MCP Scanner</strong> scans servers before integration to catch risks like tool poisoning and over-privileged permissions <span class="cite">(cisco-ai-defense/mcp-scanner)</span>. Cisco's agentic-security announcements also point to <strong>AI Defense</strong> for AI application protection, <strong>Duo</strong> and Cisco Identity Intelligence for agent identity and ownership, and Secure Access for MCP policy enforcement <span class="cite">(Cisco, 2026)</span>. Cisco is also a charter participant in Anthropic's <strong>Project Glasswing</strong>, a collaboration with AWS, Apple, Google, Microsoft, and others to secure critical AI infrastructure <span class="cite">(Anthropic, 2026)</span>. The security tooling is real and it's maturing fast.</p>
+
+    <p class="section-prose">That said, I want to be straightforward about where MCP is today. The standard is young — less than two years old. Official MCP servers exist for Splunk, ThousandEyes, and a growing list of platforms, but coverage isn't universal yet. Many of the community-built servers are early-stage and should be vetted before production use (which is exactly what the MCP Scanner is for). The protocol spec itself is still evolving — the latest update added OAuth enhancements and structured content support. And while the security architecture is solid, your organization still needs to do the work of defining agent permissions, mapping them to your existing access policies, and deciding which actions require human approval. MCP isn't a magic switch. It's infrastructure — and like any infrastructure, it requires thoughtful deployment. But the foundation is here, the ecosystem is accelerating, and the organizations that start building on it now will have a significant head start.</p>
+
+    <div class="conclusion-box">
+      <h3>What You Should Do Next</h3>
+      <div class="conclusion-columns">
+        <div class="conclusion-col">
+          <p class="cb-lead">For Network &amp; Security Leaders</p>
+          <ol class="cb-actions">
+            <li><strong>Start with one MCP use case</strong> — Alert triage with Splunk, network monitoring with ThousandEyes, or threat detection with XDR. Official MCP servers are available today with no custom integration required</li>
+            <li><strong>Scan before you connect</strong> — Run Cisco's open-source MCP Scanner on any server before integrating it. Treat your AI supply chain with the same rigor you'd apply to any new vendor</li>
+            <li><strong>Define your agent permissions early</strong> — Map MCP tool access to your existing RBAC policies. Decide which actions require human approval before you deploy, not after</li>
+          </ol>
+        </div>
+        <div class="conclusion-col">
+          <p class="cb-lead">For Executives</p>
+          <ol class="cb-actions">
+            <li><strong>Your tools already have the data</strong> — MCP lets you get plain-English answers from ThousandEyes, Splunk, and ServiceNow without waiting for an engineer to pull a report</li>
+            <li><strong>Most organizations are still early</strong> — Gartner reports 17% have deployed AI agents to date, while more than 60% expect to within two years. The window is open but closing fast</li>
+            <li><strong>Platform consolidation + MCP = force multiplier</strong> — Fewer platforms, one protocol, AI agents that work across all of them</li>
+          </ol>
+        </div>
+      </div>
+      <p class="cb-closing">MCP isn't a product you buy — it's an open standard you adopt. The protocol is free. The SDKs are free. The MCP Scanner is free. The barrier to starting is near zero. The risk of waiting is not.</p>
+    </div>
+   </div>
+  </section>
+
+  <!-- ===================== METHODOLOGY ===================== -->
+  <section id="methodology" class="section">
+   <div class="container">
+    <details class="method-toggle">
+      <summary class="method-toggle-btn">Methodology &amp; Sources</summary>
+      <div class="method-grid">
+        <div class="method-card">
+          <h4>Vectra AI</h4>
+          <p class="method-pub">"2026 State of Threat Detection"</p>
+          <p>Survey of SOC practitioners on alert volumes, false positive rates, and tool sprawl. N=2,000+ security professionals.</p>
+          <span class="method-tag">Alert fatigue, tool sprawl data</span>
+        </div>
+        <div class="method-card">
+          <h4>IBM</h4>
+          <p class="method-pub">"2025 Cost of a Data Breach Report"</p>
+          <p>Annual global study of breach costs across 604 organizations in 17 countries. 20th edition.</p>
+          <span class="method-tag">Breach costs, AI savings, lifecycle data</span>
+        </div>
+        <div class="method-card">
+          <h4>ISC2</h4>
+          <p class="method-pub">"2024 Workforce Gap Estimate" and "2025 Cybersecurity Workforce Study"</p>
+          <p>ISC2's 2024 study estimated a 4.8M global cybersecurity workforce gap. The 2025 study surveyed 16,029 practitioners and shifted emphasis toward skills needs, AI adoption, retention, and capability pressure.</p>
+          <span class="method-tag">Workforce gap, burnout, retention</span>
+        </div>
+        <div class="method-card">
+          <h4>Census Bureau</h4>
+          <p class="method-pub">"Business Trends &amp; Outlook Survey (BTOS)"</p>
+          <p>Federal statistical survey of AI adoption across U.S. business sectors. September 2025 wave.</p>
+          <span class="method-tag">Enterprise AI adoption by sector</span>
+        </div>
+        <div class="method-card">
+          <h4>Anthropic / AAIF</h4>
+          <p class="method-pub">"MCP Specification &amp; Ecosystem Data"</p>
+          <p>Official MCP GitHub repositories, npm/PyPI download statistics, and Agentic AI Foundation governance documents.</p>
+          <span class="method-tag">MCP growth, SDK downloads, adopters</span>
+        </div>
+        <div class="method-card">
+          <h4>Gartner / Forrester</h4>
+          <p class="method-pub">"Analyst Predictions 2025–2029"</p>
+          <p>Published predictions on AI agent adoption, AIOps growth, and MCP ecosystem expansion.</p>
+          <span class="method-tag">Market forecasts</span>
+        </div>
+        <div class="method-card">
+          <h4>HBR / Qatalog / Moveworks</h4>
+          <p class="method-pub">"Context Switching Research"</p>
+          <p>Harvard Business Review 2022 (app toggles), Qatalog &amp; Cornell University (refocus time), and Moveworks productivity studies on cognitive overhead.</p>
+          <span class="method-tag">Context switching, productivity loss</span>
+        </div>
+        <div class="method-card">
+          <h4>SANS Institute</h4>
+          <p class="method-pub">"2025 SOC Survey"</p>
+          <p>Annual survey of SOC operations, detection and response capabilities, and analyst challenges.</p>
+          <span class="method-tag">False positive rates, SOC operations</span>
+        </div>
+      </div>
+    </details>
+   </div>
+  </section>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer>
+    <p>Written by Jack Riebel &middot; April 2026 &middot; Data sourced from cited research</p>
+    <p class="footer-note">Views are my own. Built with open data and Chart.js.</p>
+    <div class="view-counter">
+      <img src="https://visitor-badge.laobi.icu/badge?page_id=JackRiebel.mcp-c-suite-to-noc&left_color=%230a0a0f&right_color=%237c6cff&left_text=views" alt="view count"/>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4"></script>
+  <script src="data.js"></script>
+  <script src="charts.js"></script>
+</body>
+</html>

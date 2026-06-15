@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Agents Are the New Shadow IT</title>
+
+  <meta property="og:title" content="AI Agents Are the New Shadow IT">
+  <meta property="og:description" content="Agentic AI is moving from copilots to coworkers. The security model has to move with it: identity, least privilege, runtime inspection, and recoverability.">
+  <meta property="og:image" content="https://jackriebel.github.io/mcp-c-suite-to-noc/MCP.png">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://jackriebel.github.io/mcp-c-suite-to-noc/agent-shadow-it.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="AI Agents Are the New Shadow IT">
+  <meta name="twitter:description" content="A Cisco SE perspective on securing the agentic workforce without slowing innovation.">
+  <meta name="twitter:image" content="https://jackriebel.github.io/mcp-c-suite-to-noc/MCP.png">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <div class="reading-progress" id="readingProgress"></div>
+
+  <section class="hero">
+    <h1>AI Agents Are the New Shadow IT</h1>
+    <p class="subtitle">The first wave of enterprise AI answered questions. The next wave takes actions: opening tickets, querying logs, changing code, joining workflows, and calling tools through protocols like MCP. That is powerful. It is also a new workforce of non-human identities that most security programs cannot fully see yet.</p>
+
+    <div class="author-byline">
+      <img class="author-photo" src="Screenshot%202026-03-25%20at%201.28.57%E2%80%AFPM%20Large.jpeg" alt="Jack Riebel">
+      <div class="author-info">
+        <span class="author-name">Jack Riebel</span>
+        <span class="author-date">May 2026</span>
+      </div>
+    </div>
+
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <span class="hero-stat-value">109:1</span>
+        <span class="hero-stat-label">Machine-to-Human Identities</span>
+      </div>
+      <div class="hero-stat">
+        <span class="hero-stat-value">87%</span>
+        <span class="hero-stat-label">AI Risk Growing Fastest</span>
+      </div>
+      <div class="hero-stat">
+        <span class="hero-stat-value">86%</span>
+        <span class="hero-stat-label">Agents May Outpace Guardrails</span>
+      </div>
+      <div class="hero-stat">
+        <span class="hero-stat-value">23%</span>
+        <span class="hero-stat-label">Full Agent Visibility</span>
+      </div>
+      <div class="hero-stat">
+        <span class="hero-stat-value">$100M</span>
+        <span class="hero-stat-label">Project Glasswing Credits</span>
+      </div>
+    </div>
+
+    <div class="hero-sources">
+      Sources: <a href="#methodology">Palo Alto Networks</a> · <a href="#methodology">WEF</a> · <a href="#methodology">Rubrik Zero Labs</a> · <a href="#methodology">Anthropic</a> · <a href="#methodology">Cisco</a>
+    </div>
+  </section>
+
+  <nav class="sticky-nav">
+    <div class="nav-inner">
+      <a href="#what-changed" class="nav-link">What Changed</a>
+      <a href="#shadow-workforce" class="nav-link">Shadow Workforce</a>
+      <a href="#attack-surface" class="nav-link">Attack Surface</a>
+      <a href="#fabrics" class="nav-link">Fabrics</a>
+      <a href="#glasswing" class="nav-link">Glasswing</a>
+      <a href="#cisco-view" class="nav-link">Cisco View</a>
+      <a href="#what-to-do" class="nav-link">What To Do</a>
+      <a href="#methodology" class="nav-link">Methodology</a>
+    </div>
+  </nav>
+
+  <section id="what-changed" class="section alt">
+    <div class="container">
+      <h2>What Changed?</h2>
+      <p class="section-desc">Copilots changed how people work. Agents change who, or what, is doing the work.</p>
+
+      <p class="section-prose">For the last two years, most enterprise AI conversations have centered on productivity: writing emails, summarizing meetings, drafting code, answering questions. Those use cases matter, but they are not the security inflection point. The inflection point is action. Once an AI system can call APIs, browse internal systems, trigger workflows, write to repositories, query a SIEM, update a ticket, or run an MCP tool, it stops being a chatbot and starts behaving like a digital worker.</p>
+
+      <p class="section-prose">That is why I think the right mental model is not "AI app." It is <strong>shadow IT with agency</strong>. The old version of shadow IT was a SaaS app someone expensed on a credit card. The new version is an autonomous workflow someone connected to Slack, GitHub, Salesforce, ServiceNow, Splunk, or an MCP server because it made their job faster. The business value is obvious. The governance gap is just as obvious.</p>
+
+      <div class="agent-control-card" data-agent-state="unmanaged">
+        <div class="agent-card-head">
+          <div>
+            <span class="agent-eyebrow">Interactive Fabric View</span>
+            <h3>Agent Workforce Over SASE</h3>
+            <p>Flip the posture to see how remote users, branches, and role-based AI agents move through SASE, ZTNA, segmentation, microsegmentation, and telemetry before reaching enterprise apps.</p>
+          </div>
+          <div class="agent-mode-switch" aria-label="Agent governance posture">
+            <button class="agent-mode-btn active danger" data-agent-mode="unmanaged" aria-pressed="true">Unmanaged</button>
+            <button class="agent-mode-btn" data-agent-mode="governed" aria-pressed="false">Governed</button>
+          </div>
+        </div>
+
+        <div class="agent-fabric-map">
+          <div class="building-request-panel">
+            <div class="request-card">
+              <span>Remote Work + Agent Requests</span>
+              <p>Employees ask AI agents to sell, code, investigate alerts, update tickets, and pull business data from anywhere.</p>
+            </div>
+            <div class="agent-badge-card active-agent" data-agent-card="sales">
+              <div class="agent-badge-orb">AI</div>
+              <div>
+                <strong>AI Sales Agent</strong>
+                <small>Remote seller asks for account context, pipeline notes, and customer follow-up.</small>
+              </div>
+            </div>
+            <div class="agent-badge-card" data-agent-card="coding">
+              <div class="agent-badge-orb">AI</div>
+              <div>
+                <strong>AI Coding Agent</strong>
+                <small>Developer asks it to inspect repos, open pull requests, and check build context.</small>
+              </div>
+            </div>
+            <div class="agent-badge-card" data-agent-card="soc">
+              <div class="agent-badge-orb">AI</div>
+              <div>
+                <strong>AI SOC Agent</strong>
+                <small data-fabric-summary>Borrowed credentials let agents wander across tools without clear owners or boundaries.</small>
+              </div>
+            </div>
+            <div class="sase-cloud">
+              <span>SASE / SSE Edge</span>
+              <strong>ZTNA + SWG + CASB + DLP + FWaaS + SD-WAN</strong>
+              <small data-sase-summary>Remote access exists, but agent traffic is treated too much like normal user traffic.</small>
+            </div>
+            <div class="access-legend">
+              <span><i class="legend-allowed"></i>Allowed</span>
+              <span><i class="legend-review"></i>Review</span>
+              <span><i class="legend-blocked"></i>Blocked</span>
+            </div>
+          </div>
+
+          <div class="security-elevator">
+            <div class="elevator-title">
+              <span>Control Path</span>
+              <strong data-path-label>Open access: remote agents inherit broad reach</strong>
+            </div>
+            <div class="elevator-shaft">
+              <div class="elevator-gate weak" data-gate="sase">
+                <span>Cloud Edge</span>
+                <strong>SASE</strong>
+                <small>Remote traffic only partially classified</small>
+              </div>
+              <div class="elevator-gate weak" data-gate="ztna">
+                <span>Badge Check</span>
+                <strong>ZTNA</strong>
+                <small>Trust inherited from token</small>
+              </div>
+              <div class="elevator-gate weak" data-gate="segmentation">
+                <span>Floor Assignment</span>
+                <strong>Segmentation Fabric</strong>
+                <small>Flat east-west reach</small>
+              </div>
+              <div class="elevator-gate weak" data-gate="microseg">
+                <span>Room Keys</span>
+                <strong>Microsegmentation</strong>
+                <small>No workload boundary</small>
+              </div>
+              <div class="elevator-gate weak" data-gate="telemetry">
+                <span>Access Log</span>
+                <strong>SOC Telemetry</strong>
+                <small>Logs are scattered</small>
+              </div>
+            </div>
+          </div>
+
+          <div class="enterprise-building">
+            <div class="building-label">
+              <span>Enterprise Building</span>
+              <strong data-building-label>Unmanaged: every agent sees too many floors</strong>
+            </div>
+            <div class="building-floor" data-floor="saas">
+              <div class="floor-meta"><span>Floor 4</span><strong>SaaS</strong></div>
+              <div class="floor-rooms">
+                <div class="room-node open" data-node="salesforce"><strong>Salesforce</strong><small>Read all account data</small></div>
+                <div class="room-node open" data-node="servicenow"><strong>ServiceNow</strong><small>Create + close tickets</small></div>
+                <div class="room-node open" data-node="webex"><strong>Webex</strong><small>Post to broad rooms</small></div>
+              </div>
+            </div>
+            <div class="building-floor" data-floor="cloud">
+              <div class="floor-meta"><span>Floor 3</span><strong>Cloud / Dev</strong></div>
+              <div class="floor-rooms">
+                <div class="room-node open" data-node="github"><strong>GitHub</strong><small>Open pull requests</small></div>
+              </div>
+            </div>
+            <div class="building-floor" data-floor="datacenter">
+              <div class="floor-meta"><span>Floor 2</span><strong>Data Center</strong></div>
+              <div class="floor-rooms">
+                <div class="room-node open" data-node="splunk"><strong>Splunk</strong><small>Read all indexes</small></div>
+              </div>
+            </div>
+            <div class="building-floor restricted" data-floor="restricted">
+              <div class="floor-meta"><span>Floor 1</span><strong>Restricted</strong></div>
+              <div class="floor-rooms">
+                <div class="room-node open" data-node="prod-db"><strong>Prod DB</strong><small>Reachable network path</small></div>
+                <div class="room-node open" data-node="payroll"><strong>Payroll</strong><small>Out of scope but visible</small></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="fabric-explainer-row">
+          <div class="fabric-verdict weak">
+            <span data-fabric-verdict-label>Unmanaged: useful, but overexposed</span>
+            <p data-fabric-verdict-copy>The agent can complete the task, but it can also reach systems it does not need. A compromised prompt, token, or MCP tool has too much room to move.</p>
+          </div>
+          <div class="microseg-note">
+            <span>What microsegmentation adds</span>
+            <p data-microseg-copy>Instead of trusting the whole network path, each workload or application segment gets its own allowed behavior. The agent can reach Splunk for the incident, but not payroll or the production database.</p>
+          </div>
+        </div>
+      </div>
+
+      <p class="section-prose">This does not mean agents are bad. It means they need the same seriousness we apply to privileged users, service accounts, APIs, endpoints, and third-party integrations. An agent that can only summarize a public document is low risk. An agent that can read customer records, file firewall changes, open cloud consoles, create pull requests, or send messages on behalf of an employee is part of the control plane.</p>
+    </div>
+  </section>
+
+  <section id="shadow-workforce" class="section">
+    <div class="container">
+      <h2>The Shadow Workforce Is Already Here</h2>
+      <p class="section-desc">The identity problem is bigger than agents, but agents make it harder to ignore.</p>
+
+      <p class="section-prose">Security teams already live in a world where non-human identities outnumber people. Service accounts, automation roles, API keys, workload identities, CI/CD tokens, third-party connectors, and bots have been multiplying for years. Palo Alto Networks' 2026 Identity Security Landscape reports that machine identities, including AI agents, now outnumber human identities <strong>109 to 1</strong> <span class="cite">(Palo Alto Networks / CyberArk, 2026)</span>.</p>
+
+      <div class="chart-row">
+        <div class="chart-card">
+          <h3>The Species Shift</h3>
+          <p class="chart-desc">Machine and AI identities now dramatically outnumber human identities.</p>
+          <canvas id="identityRatioChart"></canvas>
+        </div>
+        <div class="chart-card">
+          <h3>The Control Gap</h3>
+          <p class="chart-desc">Agent adoption is moving faster than visibility, rollback, and runtime controls.</p>
+          <canvas id="controlGapChart"></canvas>
+        </div>
+      </div>
+
+      <p class="section-prose">Agents intensify this because they do not just hold credentials. They reason, chain tools together, and make decisions based on changing context. A traditional service account usually does one thing. An agent might read a ticket, search a knowledge base, query Splunk, inspect a GitHub repo, summarize findings in Webex, and recommend a firewall change. If you cannot answer who owns that agent, what it is allowed to touch, what data it moved, and why it took an action, you do not have agent governance. You have automation with a blindfold on.</p>
+
+      <div class="callout-banner">
+        <div class="cb-title">The uncomfortable question</div>
+        <div class="cb-body">If an agent makes a bad change at 2:13 a.m., does your SOC see a user, a service account, an API call, a workflow run, an MCP tool invocation, or nothing useful at all?</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="attack-surface" class="section alt">
+    <div class="container">
+      <h2>The New Attack Surface</h2>
+      <p class="section-desc">Prompt injection gets the headlines. The bigger risk is the chain: identity, tools, data, behavior, and recovery.</p>
+
+      <p class="section-prose">A lot of AI security content starts and ends with prompt injection. That is a real issue, but it is only one layer. Agentic systems create compound risk because the model sits between the user, the tools, the data, and the action. A malicious web page, poisoned document, compromised MCP server, overbroad API token, or hidden instruction in a ticket can all become meaningful if the agent has enough permission and too little inspection.</p>
+
+      <div class="chart-card wide">
+        <h3>Illustrative Agent Control Map</h3>
+        <p class="chart-desc">A conceptual index, not survey data: where agentic risk pressure is high and where many enterprise controls are still maturing.</p>
+        <canvas id="riskLayerChart"></canvas>
+      </div>
+
+      <p class="section-prose">This is where MCP matters. MCP is a useful standard because it gives agents a consistent way to connect to tools. But a standard connector is still a connector. If an MCP server exposes file reads, shell access, web fetches, ticket updates, or sensitive business data, it becomes part of your supply chain. Cisco's open-source MCP Scanner is aimed at exactly this layer: inspecting MCP servers, tool definitions, prompts, resources, manifests, credentials, network permissions, and behavior drift before those components are trusted <span class="cite">(Cisco AI Defense / MCP Scanner)</span>.</p>
+
+      <p class="section-prose">The goal is not to ban agents. That would be like banning APIs because some APIs are risky. The goal is to stop treating agent access as an experiment. Agents need owners. They need scoped permissions. They need runtime policy. They need logs that a SOC can understand. And when they make a mistake, the organization needs a way to unwind the blast radius.</p>
+    </div>
+  </section>
+
+  <section id="fabrics" class="section">
+    <div class="container">
+      <h2>Agents Need a Fabric, Not a Fence</h2>
+      <p class="section-desc">When agents are launched by remote users, contractors, branches, and developers, the question is not just whether they can log in. It is how SASE/SSE and the network fabric route, inspect, and constrain what they can reach afterward.</p>
+
+      <p class="section-prose">Your floor analogy is the right way to explain it. A flat network is like putting developers, sales, finance, HR, and security in cubicles on the same open floor. Everyone may have different jobs, but once someone gets onto the floor, they can walk around and try doors they were never supposed to touch. A segmented fabric is more like giving each team its own floor. They may share the same building, elevators, power, and badge system, but the policy decides who can reach which floor. SASE/SSE becomes the front door for people and agents working remotely; SD-WAN and the network fabric help connect locations; segmentation and microsegmentation decide where agents can go once they are inside.</p>
+
+      <div class="fabric-grid">
+        <div class="fabric-card">
+          <span>01</span>
+          <h3>ZTNA Is the Badge Check</h3>
+          <p>Before the agent reaches an app or tool, identity and posture decide whether it should enter at all. Who owns it? What is it trying to do? Is this request normal?</p>
+        </div>
+        <div class="fabric-card">
+          <span>02</span>
+          <h3>Segmentation Is the Floor Plan</h3>
+          <p>The fabric separates teams, applications, environments, and trust zones so an agent approved for one area does not automatically inherit access to the rest of the building.</p>
+        </div>
+        <div class="fabric-card">
+          <span>03</span>
+          <h3>Microsegmentation Is the Locked Room</h3>
+          <p>Even inside the right floor, the agent should only reach the specific workload, API, or data set it needs. Splunk incident indexes do not imply payroll or production database access.</p>
+        </div>
+        <div class="fabric-card">
+          <span>04</span>
+          <h3>Telemetry Is the Access Log</h3>
+          <p>The SOC needs to see the owner, agent, tool call, network path, policy decision, data touched, and response action as one story, not five disconnected logs.</p>
+        </div>
+      </div>
+
+      <p class="section-prose">That is the part of Cisco Hypershield that matters in this conversation. Hypershield is not simply another perimeter box. It is Cisco's distributed security architecture for applying policy closer to the workload and application behavior. In the analogy, it helps build and maintain the floor plan, then adds more granular doors inside each floor. Its early use cases map well to agentic risk: <strong>autonomous segmentation</strong>, which observes application behavior and helps create tighter boundaries, and <strong>distributed exploit protection</strong>, which can recommend and test compensating controls when a vulnerable workload cannot be patched immediately <span class="cite">(Cisco Hypershield)</span>.</p>
+
+      <div class="callout-banner">
+        <div class="cb-title">Why this matters for agents</div>
+        <div class="cb-body">An agent should not get the keys to the whole office just because it has a valid badge. ZTNA checks whether it should enter, segmentation decides which floor it can reach, microsegmentation limits which rooms it can open, and telemetry tells the SOC what happened.</div>
+      </div>
+
+      <p class="section-prose">For the IT persona, the technical direction matters: Hypershield uses workload-level enforcement with Cisco's Tesseract Security Agent, built on Isovalent/Tetragon and eBPF, so policy can get closer to process and network behavior instead of relying only on a central choke point. For the executive persona, the business point is simpler: as agents move faster and touch more systems, security has to become more granular and more automated, or the organization will spend all its time manually approving exceptions after the fact.</p>
+    </div>
+  </section>
+
+  <section id="glasswing" class="section alt">
+    <div class="container">
+      <h2>Project Glasswing Is the Warning Shot</h2>
+      <p class="section-desc">The same AI capabilities that help defenders find vulnerabilities will eventually help attackers move faster too.</p>
+
+      <p class="section-prose">Anthropic announced Project Glasswing in April 2026 with AWS, Apple, Broadcom, Cisco, CrowdStrike, Google, JPMorganChase, the Linux Foundation, Microsoft, NVIDIA, and Palo Alto Networks as launch partners. The headline was not subtle: Claude Mythos Preview had found thousands of high-severity vulnerabilities, including issues in every major operating system and browser, and Anthropic committed up to <strong>$100 million</strong> in usage credits plus <strong>$4 million</strong> in donations to open-source security organizations <span class="cite">(Anthropic, Project Glasswing)</span>.</p>
+
+      <div class="glasswing-panel">
+        <div class="glasswing-stat">
+          <span>$100M</span>
+          <p>Usage credits for defensive security work</p>
+        </div>
+        <div class="glasswing-stat">
+          <span>40+</span>
+          <p>Additional critical software organizations given access</p>
+        </div>
+        <div class="glasswing-stat">
+          <span>90 days</span>
+          <p>Public reporting window for lessons and disclosed improvements</p>
+        </div>
+      </div>
+
+      <p class="section-prose">From a Cisco perspective, the important part is not name-dropping a frontier model. It is the shift in tempo. Cisco's own Glasswing post put it plainly: AI lets defenders scan and secure vast codebases at a scale that was previously unimaginable, but those same capabilities lower the threshold for attackers. That is the race. Defenders get better tools. Attackers get better leverage. The organizations that win will be the ones that operationalize AI with security built in, not bolted on after a proof of concept becomes production.</p>
+
+      <p class="section-prose">Project Glasswing is also a useful frame for agent security because it shows the industry moving from isolated product claims toward shared defensive infrastructure. No single vendor can solve agentic risk alone. The control surface crosses identity, network, endpoint, cloud, SaaS, code, data, and the SOC. That is why agent security has to look less like a point tool and more like an operating model.</p>
+    </div>
+  </section>
+
+  <section id="cisco-view" class="section">
+    <div class="container">
+      <h2>A Cisco SE View</h2>
+      <p class="section-desc">I am biased toward platforms that make security operational. But the principle is vendor-neutral: every agent needs identity, access control, behavior monitoring, and accountability.</p>
+
+      <p class="section-prose">Cisco has started using the phrase <strong>agentic workforce</strong>, and I think it is the right phrase. It forces the architecture conversation. If agents are a workforce, they need onboarding, identity, policy, access review, monitoring, incident response, and offboarding. Cisco's current agentic security direction maps to four practical questions: do we know every agent, can we authorize every action, can we inspect behavior in real time, and can the SOC investigate what happened? The next layer is fabric-level control: can those decisions follow the agent across SaaS, cloud, workload, branch, campus, and data center paths?</p>
+
+      <div class="workflow-compare agent-model">
+        <div class="workflow-col">
+          <h4><span style="color:var(--red)">Unmanaged Agent</span></h4>
+          <div class="workflow-step"><span class="step-num" style="background:rgba(248,113,113,0.2);color:var(--red)">1</span><div><strong>Unknown owner</strong><span class="step-time">No audit path</span></div></div>
+          <div class="workflow-step"><span class="step-num" style="background:rgba(248,113,113,0.2);color:var(--red)">2</span><div><strong>Standing token</strong><span class="step-time">Broad access</span></div></div>
+          <div class="workflow-step"><span class="step-num" style="background:rgba(248,113,113,0.2);color:var(--red)">3</span><div><strong>Tool chain hidden</strong><span class="step-time">Weak context</span></div></div>
+          <div class="workflow-step"><span class="step-num" style="background:rgba(248,113,113,0.2);color:var(--red)">4</span><div><strong>After-the-fact logs</strong><span class="step-time">Hard rollback</span></div></div>
+          <div class="workflow-total" style="background:rgba(248,113,113,0.1);color:var(--red)">Fast to deploy, hard to govern</div>
+        </div>
+
+        <div class="workflow-col">
+          <h4><span style="color:var(--green)">Governed Agent</span></h4>
+          <div class="workflow-step"><span class="step-num" style="background:rgba(52,211,153,0.2);color:var(--green)">1</span><div><strong>Mapped to owner</strong><span class="step-time">Duo / identity</span></div></div>
+          <div class="workflow-step"><span class="step-num" style="background:rgba(52,211,153,0.2);color:var(--green)">2</span><div><strong>Just-enough access</strong><span class="step-time">Secure Access</span></div></div>
+          <div class="workflow-step"><span class="step-num" style="background:rgba(52,211,153,0.2);color:var(--green)">3</span><div><strong>Runtime guardrails</strong><span class="step-time">AI Defense</span></div></div>
+          <div class="workflow-step"><span class="step-num" style="background:rgba(52,211,153,0.2);color:var(--green)">4</span><div><strong>SOC-ready telemetry</strong><span class="step-time">Splunk / XDR</span></div></div>
+          <div class="workflow-total" style="background:rgba(52,211,153,0.1);color:var(--green)">Still fast, but accountable</div>
+        </div>
+      </div>
+
+      <p class="section-prose">That does not mean the answer is "go buy one thing." In most environments, the first step is architectural discipline: inventory the agents and machine identities, reduce standing privilege, inspect the tool layer, and make sure agent actions land somewhere your SOC can investigate. Cisco product names show up here because Cisco is building in this direction: Duo for agent identity and ownership, Secure Access for policy enforcement and least-privilege access, AI Defense for model/application guardrails and runtime behavior, MCP Scanner for tool-chain hygiene, Hypershield for distributed segmentation and workload-level enforcement, Security Cloud Control for unified management across enforcement points, and Splunk/XDR for investigation and response.</p>
+    </div>
+  </section>
+
+  <section id="what-to-do" class="section">
+    <div class="container">
+      <h2>What Leaders Should Do Next</h2>
+      <p class="section-desc">The right response is not panic. It is basic security hygiene applied to a new class of worker.</p>
+
+      <div class="conclusion-box">
+        <h3>Build an Agent Governance Loop</h3>
+        <div class="conclusion-columns">
+          <div class="conclusion-col">
+            <p class="cb-lead">For Security and Network Leaders</p>
+            <ol class="cb-actions">
+              <li><strong>Inventory the agent layer</strong> — Find approved and unapproved agents, MCP servers, service accounts, API keys, browser automations, and SaaS connectors.</li>
+              <li><strong>Map every agent to a human owner</strong> — If nobody owns the agent, nobody owns its blast radius.</li>
+              <li><strong>Move from standing access to short-lived access</strong> — Tool-specific, time-bound permissions should become the default for agent workflows.</li>
+              <li><strong>Scan the tool supply chain</strong> — Treat MCP servers, plugins, skills, and connectors like code dependencies with permissions attached.</li>
+              <li><strong>Plan for fabric-level enforcement</strong> — As agents spread across workloads and network paths, segmentation, inspection, and policy need to follow them.</li>
+            </ol>
+          </div>
+          <div class="conclusion-col">
+            <p class="cb-lead">For Executives</p>
+            <ol class="cb-actions">
+              <li><strong>Do not let pilots become invisible production</strong> — The moment an agent touches business data or takes action, it belongs in governance.</li>
+              <li><strong>Ask for rollback, not just ROI</strong> — If an agent makes a harmful change, the business needs a recovery path.</li>
+              <li><strong>Treat agent security as an enablement layer</strong> — Better controls should let teams deploy agents faster because the guardrails are clear.</li>
+              <li><strong>Fund the fabric, not just the app</strong> — Agent governance will touch identity, network, cloud, data center, SOC, and application teams.</li>
+              <li><strong>Expect shared responsibility</strong> — Vendors, open-source maintainers, platform teams, security teams, and business owners all sit in the loop.</li>
+            </ol>
+          </div>
+        </div>
+        <p class="cb-closing">AI agents are not a future risk. They are already showing up through copilots, automation platforms, developer tools, MCP servers, and SaaS workflows. The question is whether they become another unmanaged shadow estate, or a governed workforce your organization can trust.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="methodology" class="section alt">
+    <div class="container">
+      <details class="method-toggle">
+        <summary class="method-toggle-btn">Methodology &amp; Sources</summary>
+        <div class="method-grid">
+          <div class="method-card">
+            <h4>Palo Alto Networks / CyberArk</h4>
+            <p class="method-pub"><a href="https://www.paloaltonetworks.com/idira/idira-identity-security-landscape">2026 Identity Security Landscape</a></p>
+            <p>2,900+ cybersecurity decision-makers; machine identities outnumber human identities 109:1; identity-related breach and access-governance findings.</p>
+            <span class="method-tag">Identity sprawl, machine identities</span>
+          </div>
+          <div class="method-card">
+            <h4>World Economic Forum</h4>
+            <p class="method-pub"><a href="https://www.weforum.org/publications/global-cybersecurity-outlook-2026/in-full/3-the-trends-reshaping-cybersecurity/">Global Cybersecurity Outlook 2026</a></p>
+            <p>Global cyber leader survey; 87% identified AI-related vulnerabilities as the fastest-growing cyber risk during 2025.</p>
+            <span class="method-tag">AI risk, cyber outlook</span>
+          </div>
+          <div class="method-card">
+            <h4>Rubrik Zero Labs</h4>
+            <p class="method-pub"><a href="https://www.rubrik.com/company/newsroom/press-releases/26/as-agentic-ai-adoption-accelerates-rubrik-warns-of-growing-security-gaps">The State of the Agent</a></p>
+            <p>Survey of 1,600+ IT and security leaders; 86% expect agents to outpace guardrails, 23% report full visibility, and 88% lack rollback without disruption.</p>
+            <span class="method-tag">Agent visibility, guardrails, recovery</span>
+          </div>
+          <div class="method-card">
+            <h4>Anthropic</h4>
+            <p class="method-pub"><a href="https://www.anthropic.com/glasswing">Project Glasswing</a></p>
+            <p>April 2026 announcement of cross-industry defensive security initiative with AWS, Apple, Broadcom, Cisco, CrowdStrike, Google, JPMorganChase, Linux Foundation, Microsoft, NVIDIA, and Palo Alto Networks.</p>
+            <span class="method-tag">Project Glasswing, Mythos Preview</span>
+          </div>
+          <div class="method-card">
+            <h4>Cisco</h4>
+            <p class="method-pub"><a href="https://newsroom.cisco.com/c/r/newsroom/en/us/a/y2026/m03/cisco-reimagines-security-for-the-agentic-workforce.html">Security for the Agentic Workforce</a></p>
+            <p>Cisco RSA 2026 announcement covering agent discovery, Duo agentic IAM, MCP policy enforcement in Secure Access, AI Defense Explorer Edition, DefenseClaw, and Splunk AI innovations.</p>
+            <span class="method-tag">Cisco perspective, agentic workforce</span>
+          </div>
+          <div class="method-card">
+            <h4>Cisco AI Defense</h4>
+            <p class="method-pub"><a href="https://blogs.cisco.com/ai/securing-the-ai-agent-supply-chain-with-ciscos-open-source-mcp-scanner">Open-Source MCP Scanner</a></p>
+            <p>Cisco's MCP Scanner evaluates MCP servers, tools, prompts, resources, credentials, network permissions, and AI-specific risks before integration.</p>
+            <span class="method-tag">MCP supply chain, scanner, AI Defense</span>
+          </div>
+          <div class="method-card">
+            <h4>Cisco Hypershield</h4>
+            <p class="method-pub"><a href="https://www.cisco.com/site/us/en/products/security/hypershield/index.html">AI-Native Distributed Security</a></p>
+            <p>Cisco Hypershield is positioned as a highly distributed security fabric for zero-trust segmentation and application protection across data center, cloud, campus, and IoT environments.</p>
+            <span class="method-tag">Security fabric, segmentation, workload enforcement</span>
+          </div>
+          <div class="method-card">
+            <h4>Cisco Hypershield Solution Overview</h4>
+            <p class="method-pub"><a href="https://www.cisco.com/c/en/us/products/collateral/security/hypershield-so.html">Security for the AI-Scale Data Center</a></p>
+            <p>Source for Hypershield's fabric-not-fence framing, autonomous segmentation, distributed exploit protection, and workload-level enforcement with Tesseract, Tetragon, and eBPF.</p>
+            <span class="method-tag">Autonomous segmentation, distributed exploit protection</span>
+          </div>
+          <div class="method-card">
+            <h4>Cisco Security Cloud Control</h4>
+            <p class="method-pub"><a href="https://www.cisco.com/c/en/us/products/collateral/security/security-cloud/security-cloud-control-aag.html">Security Cloud Control At a Glance</a></p>
+            <p>Source for unified management across Hybrid Mesh Firewall, Hypershield, Secure Access, Secure Firewall, Multicloud Defense, Secure Workload, and Cisco AI Defense.</p>
+            <span class="method-tag">Unified policy management, hybrid mesh firewall</span>
+          </div>
+          <div class="method-card">
+            <h4>Cisco Security &amp; Trust</h4>
+            <p class="method-pub"><a href="https://blogs.cisco.com/news/rising-to-the-era-of-ai-powered-cyber-defense">Rising to the Era of AI-Powered Cyber Defense</a></p>
+            <p>Cisco's Project Glasswing perspective: AI helps defenders scan and secure code at unprecedented scale while also lowering the threshold for attackers.</p>
+            <span class="method-tag">Cisco + Project Glasswing</span>
+          </div>
+          <div class="method-card">
+            <h4>Palo Alto Networks Unit 42</h4>
+            <p class="method-pub"><a href="https://www.paloaltonetworks.com/resources/research/unit-42-incident-response-report">2026 Global Incident Response Report</a></p>
+            <p>Incident response perspective on machine and AI identities, over-privileged service accounts, long-lived credentials, shadow identities, and identity as the security perimeter.</p>
+            <span class="method-tag">Threat landscape, shadow identities</span>
+          </div>
+          <div class="method-card">
+            <h4>Illustrative Visuals</h4>
+            <p class="method-pub">Author's conceptual model</p>
+            <p>The SASE/fabric building illustration and agent control map are explanatory models, not product architecture diagrams or measured survey outputs. They are meant to make ZTNA, segmentation, microsegmentation, and telemetry easier to reason about.</p>
+            <span class="method-tag">Illustrations, conceptual scoring</span>
+          </div>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <footer>
+    <p>Written by Jack Riebel &middot; May 2026 &middot; Cisco SE perspective, views my own</p>
+    <p class="footer-note">Built with public sources, open data, and Chart.js.</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4"></script>
+  <script src="agent-shadow-data.js"></script>
+  <script src="agent-shadow-charts.js"></script>
+</body>
+</html>
