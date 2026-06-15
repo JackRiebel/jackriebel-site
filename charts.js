@@ -3,16 +3,34 @@
   'use strict';
 
   // ── Chart.js global defaults ──────────────────────────────────────────────
-  Chart.defaults.color = '#888894';
-  Chart.defaults.borderColor = 'rgba(255,255,255,0.06)';
-  Chart.defaults.font.family = "'Inter', system-ui, sans-serif";
+  function chartTheme() {
+    if (window.JRTheme && typeof window.JRTheme.colors === 'function') return window.JRTheme.colors();
+    return {
+      text: '#1d1d1f',
+      muted: '#6e6e73',
+      softText: '#515154',
+      faintText: 'rgba(29,29,31,0.34)',
+      grid: 'rgba(29,29,31,0.10)',
+      tooltipBg: 'rgba(255,255,255,0.97)',
+      tooltipBorder: 'rgba(29,29,31,0.14)',
+      pointBorder: '#ffffff',
+      diagramNode: 'rgba(255,255,255,0.96)',
+      diagramHub: 'rgba(255,255,255,0.98)',
+    };
+  }
+
+  const theme = chartTheme();
+
+  Chart.defaults.color = theme.muted;
+  Chart.defaults.borderColor = theme.grid;
+  Chart.defaults.font.family = "-apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', system-ui, sans-serif";
   Chart.defaults.font.size = 12;
   Chart.defaults.plugins.legend.labels.boxWidth = 14;
   Chart.defaults.plugins.legend.labels.padding = 16;
-  Chart.defaults.plugins.tooltip.backgroundColor = 'rgba(10,10,15,0.95)';
-  Chart.defaults.plugins.tooltip.titleColor = '#fff';
-  Chart.defaults.plugins.tooltip.bodyColor = '#e0e0e8';
-  Chart.defaults.plugins.tooltip.borderColor = 'rgba(255,255,255,0.1)';
+  Chart.defaults.plugins.tooltip.backgroundColor = theme.tooltipBg;
+  Chart.defaults.plugins.tooltip.titleColor = theme.text;
+  Chart.defaults.plugins.tooltip.bodyColor = theme.softText;
+  Chart.defaults.plugins.tooltip.borderColor = theme.tooltipBorder;
   Chart.defaults.plugins.tooltip.borderWidth = 1;
   Chart.defaults.plugins.tooltip.cornerRadius = 8;
   Chart.defaults.plugins.tooltip.padding = 10;
@@ -96,7 +114,7 @@
         y: {
           beginAtZero: true,
           ticks: { callback: function (v) { return v.toLocaleString(); } },
-          grid: { color: 'rgba(255,255,255,0.04)' },
+          grid: { color: theme.grid },
         },
         x: { grid: { display: false } },
       },
@@ -128,7 +146,7 @@
       scales: {
         x: {
           beginAtZero: true,
-          grid: { color: 'rgba(255,255,255,0.04)' },
+          grid: { color: theme.grid },
         },
         y: { grid: { display: false } },
       },
@@ -151,7 +169,7 @@
         tension: 0.35,
         pointRadius: 4,
         pointBackgroundColor: CYAN,
-        pointBorderColor: '#0a0a0f',
+        pointBorderColor: theme.pointBorder,
         pointBorderWidth: 2,
         pointHoverRadius: 7,
       }],
@@ -168,7 +186,7 @@
         y: {
           beginAtZero: true,
           ticks: { callback: function (v) { return v + 'M'; } },
-          grid: { color: 'rgba(255,255,255,0.04)' },
+          grid: { color: theme.grid },
         },
         x: {
           grid: { display: false },
@@ -391,7 +409,7 @@
 
       // ── HUB → AI LINES (left side) ──
       // Lines in neutral cyan. Dot flows FROM hub TO AI in GREEN
-      // (showing standardized MCP output reaching every AI model).
+      // (showing standardized MCP output reaching supported AI clients).
       aiModels.forEach(function (ai, i) {
         var ay = aiYs[i] + boxH / 2;
         var alpha = 0.5 * aa;
@@ -434,7 +452,7 @@
       ctx.shadowBlur = 26;
       ctx.beginPath();
       ctx.arc(midX, hubY, hubR, 0, Math.PI * 2);
-      ctx.fillStyle = 'rgba(8,8,16,' + (aa * 0.97) + ')';
+      ctx.fillStyle = theme.diagramHub;
       ctx.fill();
       ctx.shadowColor = 'transparent';
 
@@ -447,7 +465,7 @@
       ctx.stroke();
 
       // MCP label
-      ctx.fillStyle = '#fff';
+      ctx.fillStyle = theme.text;
       ctx.globalAlpha = aa;
       ctx.font = '700 ' + (sm ? '14' : '17') + 'px Inter, system-ui';
       ctx.textAlign = 'center';
@@ -475,12 +493,12 @@
       var ac = ai.color;
 
       rrect(leftX, y, boxW, boxH, 7);
-      ctx.fillStyle = isThis ? ac + '1f' : 'rgba(20,20,32,0.95)';
+      ctx.fillStyle = isThis ? ac + '1f' : theme.diagramNode;
       ctx.fill();
       ctx.strokeStyle = dimmed ? ac + '22' : (isThis ? ac + 'dd' : ac + '66');
       ctx.lineWidth = isThis ? 2 : 1;
       ctx.stroke();
-      ctx.fillStyle = dimmed ? 'rgba(255,255,255,0.3)' : '#fff';
+      ctx.fillStyle = dimmed ? theme.faintText : theme.text;
       ctx.font = (isThis ? '700 ' : '500 ') + (sm ? '11' : '13') + 'px Inter, system-ui';
       ctx.textAlign = 'center';
       ctx.textBaseline = 'middle';
@@ -501,12 +519,12 @@
       var tc = tool.color;
 
       rrect(rightX, y, boxW, boxH, 7);
-      ctx.fillStyle = isThis ? tc + '1f' : (isRot ? tc + '14' : 'rgba(20,20,32,0.95)');
+      ctx.fillStyle = isThis ? tc + '1f' : (isRot ? tc + '14' : theme.diagramNode);
       ctx.fill();
       ctx.strokeStyle = dimmed ? tc + '22' : ((isThis || isRot) ? tc + 'dd' : tc + '66');
       ctx.lineWidth = (isThis || isRot) ? 2 : 1;
       ctx.stroke();
-      ctx.fillStyle = dimmed ? 'rgba(255,255,255,0.3)' : '#fff';
+      ctx.fillStyle = dimmed ? theme.faintText : theme.text;
       ctx.font = ((isThis || isRot) ? '700 ' : '500 ') + (sm ? '10' : '13') + 'px Inter, system-ui';
       ctx.textAlign = 'center';
       ctx.textBaseline = 'middle';
@@ -533,7 +551,7 @@
     var label = t < 0.5
       ? total + ' custom integrations to build & maintain'
       : (aiModels.length + entTools.length) + ' connections through one standard';
-    ctx.fillStyle = '#fff';
+    ctx.fillStyle = theme.text;
     ctx.font = '600 ' + (sm ? '11' : '14') + 'px Inter, system-ui';
     ctx.textAlign = 'center';
     ctx.fillText(label, w / 2, h - (sm ? 8 : 12));

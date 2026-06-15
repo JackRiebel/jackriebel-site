@@ -15,7 +15,7 @@ const MCP_ECOSYSTEM = {
     javaSDKStars: 3361,
     rustSDKStars: 3303,
   },
-  monthlySDKDownloads: 97_000_000,     // 97M, Dec 2025 (Effloow / npm+PyPI)
+  monthlySDKDownloads: 97_000_000,     // 97M, Mar 2026 reported combined npm+PyPI SDK downloads
   activeServers: 10_000,               // Anthropic Dec 2025
   totalServers: 12_000,                // across all registries, 2026
   registryServers: 8_013,              // official registry, Mar 2026
@@ -34,6 +34,7 @@ const MCP_TIMELINE = [
   { date: "May 2025", label: "Microsoft Integrates",  detail: "MCP integrated into Windows 11, Azure AI Agent Service at Build 2025" },
   { date: "Nov 2025", label: "AWS + Spec Update",     detail: "AWS publishes MCP servers; major spec update: async ops, server identity" },
   { date: "Dec 2025", label: "Linux Foundation",      detail: "MCP donated to Agentic AI Foundation (AAIF) under Linux Foundation" },
+  { date: "Mar 2026", label: "97M Downloads/mo",      detail: "Reported combined monthly SDK downloads reach 97 million" },
   { date: "Apr 2026", label: "83K+ Stars",            detail: "83,758 GitHub stars; 12,000+ servers; SDKs in 9+ languages" },
 ];
 
@@ -52,7 +53,10 @@ const SDK_GROWTH = [
   { month: "Sep 2025", downloads: 68 },
   { month: "Oct 2025", downloads: 78 },
   { month: "Nov 2025", downloads: 88 },
-  { month: "Dec 2025", downloads: 97 },
+  { month: "Dec 2025", downloads: 75 },
+  { month: "Jan 2026", downloads: 84 },
+  { month: "Feb 2026", downloads: 91 },
+  { month: "Mar 2026", downloads: 97 },
 ];
 
 // SOC/NOC Pain Points (multiple sources)
@@ -98,17 +102,17 @@ const DOWNTIME_COST = {
   ],
 };
 
-// Analyst Burnout & Workforce (ISC2 2025, Tines, Bitsight, Dark Reading)
+// Analyst Burnout & Workforce (ISC2 2024/2025, Tines, Bitsight, Dark Reading)
 const WORKFORCE = {
   burnoutRate: 71,                     // % of SOC analysts (Tines / Dark Reading)
   thinkingQuitting: 64,               // % likely to change jobs within year (Tines/Dark Reading)
   consideringCareerChange: 59,         // % (ISC2 2025)
   reportBurnout: 47,                   // % risk & security pros (Bitsight 2025)
   exhaustedByThreats: 48,             // % (Bitsight 2025)
-  currentWorkforce: 5_500_000,         // ISC2 2025
-  totalDemand: 10_200_000,            // ISC2 2025
-  unfilledPositions: 4_800_000,        // ISC2 2025
-  gapGrowthYoY: 19,                   // % YoY increase (ISC2 2025)
+  currentWorkforce: 5_500_000,         // ISC2 2024
+  totalDemand: 10_200_000,            // ISC2 2024
+  unfilledPositions: 4_800_000,        // ISC2 2024 workforce gap estimate
+  gapGrowthYoY: 19,                   // % YoY increase (ISC2 2024)
   staffShortageExtraCost: 1_570_000,   // $ per breach (IBM 2025: $5.22M vs $3.65M)
   retentionAt12Months: 75,            // %
   retentionAt24Months: 66,            // %
@@ -155,7 +159,8 @@ const PREDICTIONS = {
     { prediction: "Tech leaders tripling AIOps adoption", by: 2025, note: "to combat rising technical debt" },
     { prediction: "Tech debt rising to moderate/high severity", by: 2026, pct: 75 },
   ],
-  maturityReady: 6,                    // % of orgs with maturity to handle shift (Gartner)
+  agentDeployedPct: 17,                // % of orgs that have deployed AI agents to date (Gartner 2026)
+  agentExpectedWithinTwoYearsPct: 60,  // more than 60% expect deployment within two years (Gartner 2026)
 };
 
 // Enterprise MCP Case Studies

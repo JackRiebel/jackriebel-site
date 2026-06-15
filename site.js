@@ -90,14 +90,14 @@
       const key = 'site-like-' + button.dataset.likeId;
       const liked = localStorage.getItem(key) === '1';
       button.classList.toggle('liked', liked);
-      button.textContent = liked ? 'Liked' : 'Like';
+      button.textContent = liked ? 'Saved' : 'Save';
       button.setAttribute('aria-pressed', liked ? 'true' : 'false');
 
       button.addEventListener('click', function () {
         const next = localStorage.getItem(key) !== '1';
         localStorage.setItem(key, next ? '1' : '0');
         button.classList.toggle('liked', next);
-        button.textContent = next ? 'Liked' : 'Like';
+        button.textContent = next ? 'Saved' : 'Save';
         button.setAttribute('aria-pressed', next ? 'true' : 'false');
       });
     });

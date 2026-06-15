@@ -15,6 +15,7 @@
   <meta name="twitter:description" content="Public GitHub repositories and projects from Jack Riebel.">
   <meta name="twitter:image" content="cloud-control-canvas.png">
 
+  <script src="theme.js"></script>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body class="site-home">
@@ -36,10 +37,7 @@
     </nav>
 
     <section class="site-page-hero">
-      <div class="site-kicker">
-        <span>Public GitHub</span>
-        <span>Projects</span>
-      </div>
+      <p class="site-eyebrow">Public GitHub</p>
       <h1>Repos worth opening.</h1>
       <p>A public shelf of code, demos, and supporting projects. The live repo list pulls from GitHub and falls back gracefully if the API is unavailable.</p>
     </section>
@@ -49,7 +47,7 @@
     <section class="site-section compact">
       <div class="site-repo-toolbar">
         <a href="https://github.com/JackRiebel?tab=repositories" target="_blank" rel="noreferrer">View all repositories</a>
-        <button class="site-secondary-btn small" type="button" id="refreshRepos">Refresh repo shelf</button>
+        <button class="site-secondary-btn small" type="button" id="refreshRepos">Refresh</button>
       </div>
 
       <div class="site-repo-grid" id="repoGrid" aria-live="polite">

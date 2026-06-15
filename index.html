@@ -15,6 +15,7 @@
   <meta name="twitter:description" content="Technical writing, public builds, and operating-model notes from Jack Riebel.">
   <meta name="twitter:image" content="cloud-control-canvas.png">
 
+  <script src="theme.js"></script>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body class="site-home">
@@ -37,23 +38,9 @@
 
     <section class="site-hero site-about-hero">
       <div class="site-hero-copy">
-        <div class="site-kicker">
-          <span>About me</span>
-          <span>Field notes</span>
-          <span>Public builds</span>
-        </div>
+        <p class="site-eyebrow">About Jack Riebel</p>
         <h1>Hi, I’m Jack. I write about the future of IT operations.</h1>
         <p>I use this site to collect my public thinking, technical experiments, and field briefs on AI, infrastructure, security, and the messy middle where executive questions meet real operational systems.</p>
-        <div class="site-about-grid" aria-label="About Jack Riebel">
-          <div>
-            <span>What I write about</span>
-            <strong>Agentic operations, networking, security, infrastructure strategy, and executive translation.</strong>
-          </div>
-          <div>
-            <span>What I build</span>
-            <strong>Public demos, research pages, and small tools that make complex ideas easier to explain.</strong>
-          </div>
-        </div>
         <div class="site-actions">
           <a class="site-primary-btn" href="blogs.html">Read the blogs</a>
           <a class="site-secondary-btn" href="repos.html">Browse repos</a>
@@ -62,24 +49,8 @@
 
       <aside class="site-signal-panel site-about-panel" aria-label="Profile summary">
         <img class="site-about-photo" src="Screenshot%202026-03-25%20at%201.28.57%E2%80%AFPM%20Large.jpeg" alt="Jack Riebel">
-        <div class="site-signal-header">
-          <span>Current focus</span>
-          <strong>Making complex infrastructure shifts easier to explain.</strong>
-        </div>
-        <div class="site-signal-grid">
-          <div>
-            <span>Blogs</span>
-            <strong>Field briefs and practical explainers.</strong>
-          </div>
-          <div>
-            <span>Repos</span>
-            <strong>Public GitHub projects worth sharing.</strong>
-          </div>
-          <div>
-            <span>Connect</span>
-            <strong>Comment on the site or open the work on GitHub.</strong>
-          </div>
-        </div>
+        <p class="site-portrait-note">Current focus</p>
+        <strong>Making complex infrastructure shifts easier to explain.</strong>
       </aside>
     </section>
   </header>
@@ -87,26 +58,32 @@
   <main>
     <section class="site-section site-home-preview">
       <div class="site-section-head compact">
-        <span>Start here</span>
+        <p class="site-eyebrow">Start here</p>
         <h2>Explore the site</h2>
         <p>Three simple paths: read the writing, open the code, or start a conversation.</p>
       </div>
 
-      <div class="site-preview-grid">
+      <div class="site-preview-grid" aria-label="Primary site sections">
         <a class="site-preview-card" href="blogs.html">
-          <span>Blogs</span>
-          <strong>Field briefs and essays</strong>
-          <p>Cisco Live, MCP, AI agents, security operations, and infrastructure strategy.</p>
+          <span>01</span>
+          <div>
+            <strong>Field briefs and essays</strong>
+            <p>Cisco Live, MCP, AI agents, security operations, and infrastructure strategy.</p>
+          </div>
         </a>
         <a class="site-preview-card" href="repos.html">
-          <span>Repos</span>
-          <strong>Public GitHub shelf</strong>
-          <p>Projects, demos, and supporting code that I want to make easier to find.</p>
+          <span>02</span>
+          <div>
+            <strong>Public GitHub shelf</strong>
+            <p>Projects, demos, and supporting code that I want to make easier to find.</p>
+          </div>
         </a>
         <a class="site-preview-card" href="connect.html">
-          <span>Connect</span>
-          <strong>Comments and threads</strong>
-          <p>Leave a note, react to the work, or open the conversation on GitHub.</p>
+          <span>03</span>
+          <div>
+            <strong>Comments and threads</strong>
+            <p>Leave a note, react to the work, or open the conversation on GitHub.</p>
+          </div>
         </a>
       </div>
     </section>

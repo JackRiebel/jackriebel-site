@@ -2,16 +2,30 @@
 (function () {
   'use strict';
 
-  Chart.defaults.color = '#888894';
-  Chart.defaults.borderColor = 'rgba(255,255,255,0.06)';
-  Chart.defaults.font.family = "'Inter', system-ui, sans-serif";
+  function chartTheme() {
+    if (window.JRTheme && typeof window.JRTheme.colors === 'function') return window.JRTheme.colors();
+    return {
+      text: '#1d1d1f',
+      muted: '#6e6e73',
+      softText: '#515154',
+      grid: 'rgba(29,29,31,0.10)',
+      tooltipBg: 'rgba(255,255,255,0.97)',
+      tooltipBorder: 'rgba(29,29,31,0.14)',
+    };
+  }
+
+  const theme = chartTheme();
+
+  Chart.defaults.color = theme.muted;
+  Chart.defaults.borderColor = theme.grid;
+  Chart.defaults.font.family = "-apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', system-ui, sans-serif";
   Chart.defaults.font.size = 12;
   Chart.defaults.plugins.legend.labels.boxWidth = 14;
   Chart.defaults.plugins.legend.labels.padding = 16;
-  Chart.defaults.plugins.tooltip.backgroundColor = 'rgba(10,10,15,0.95)';
-  Chart.defaults.plugins.tooltip.titleColor = '#fff';
-  Chart.defaults.plugins.tooltip.bodyColor = '#e0e0e8';
-  Chart.defaults.plugins.tooltip.borderColor = 'rgba(255,255,255,0.1)';
+  Chart.defaults.plugins.tooltip.backgroundColor = theme.tooltipBg;
+  Chart.defaults.plugins.tooltip.titleColor = theme.text;
+  Chart.defaults.plugins.tooltip.bodyColor = theme.softText;
+  Chart.defaults.plugins.tooltip.borderColor = theme.tooltipBorder;
   Chart.defaults.plugins.tooltip.borderWidth = 1;
   Chart.defaults.plugins.tooltip.cornerRadius = 8;
   Chart.defaults.plugins.tooltip.padding = 10;
@@ -86,7 +100,7 @@
         y: {
           beginAtZero: true,
           ticks: { callback: function (v) { return v + ':1'; } },
-          grid: { color: 'rgba(255,255,255,0.04)' },
+          grid: { color: theme.grid },
         },
         x: { grid: { display: false } },
       },
@@ -118,7 +132,7 @@
           beginAtZero: true,
           max: 100,
           ticks: { callback: function (v) { return v + '%'; } },
-          grid: { color: 'rgba(255,255,255,0.04)' },
+          grid: { color: theme.grid },
         },
         y: { grid: { display: false } },
       },
@@ -158,7 +172,7 @@
           beginAtZero: true,
           max: 100,
           ticks: { callback: function (v) { return v; } },
-          grid: { color: 'rgba(255,255,255,0.04)' },
+          grid: { color: theme.grid },
         },
         x: { grid: { display: false } },
       },

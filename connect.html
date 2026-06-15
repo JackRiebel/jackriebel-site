@@ -15,6 +15,7 @@
   <meta name="twitter:description" content="Leave comments, react to the work, or open public GitHub threads.">
   <meta name="twitter:image" content="cloud-control-canvas.png">
 
+  <script src="theme.js"></script>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body class="site-home">
@@ -36,10 +37,7 @@
     </nav>
 
     <section class="site-page-hero">
-      <div class="site-kicker">
-        <span>Connect</span>
-        <span>Comments</span>
-      </div>
+      <p class="site-eyebrow">Connect</p>
       <h1>Start a thread.</h1>
       <p>Use this page to leave a note, react to the work, or jump into the public GitHub surface behind the site.</p>
     </section>
@@ -49,19 +47,19 @@
     <section class="site-section compact">
       <div class="site-engage-grid">
         <div class="site-engage-card">
-          <span>Article reactions</span>
-          <h3>Save the briefs you like</h3>
-          <p>Use the like controls on the blog cards to keep track of the pieces you want to revisit and the topics you want to see more often.</p>
+          <span>Saved locally</span>
+          <h3>Keep track of what you want to revisit</h3>
+          <p>The save controls on blog cards are browser-local for now, so they work like a quiet personal bookmark rather than a public count.</p>
         </div>
         <div class="site-engage-card">
           <span>Comments</span>
-          <h3>Use GitHub-backed discussion threads</h3>
-          <p>The comment area below is wired for GitHub Issues through Utterances, so readers can leave real comments after signing in with GitHub.</p>
+          <h3>Leave a real note</h3>
+          <p>The comment area below uses GitHub Issues through Utterances, so discussion stays attached to the public work.</p>
         </div>
         <div class="site-engage-card">
           <span>Repos</span>
-          <h3>Star, fork, or open the code</h3>
-          <p>Repo cards link directly to GitHub so readers can inspect the work, star it, fork it, or raise an issue where the project lives.</p>
+          <h3>Open the work directly</h3>
+          <p>Repo links go straight to GitHub so you can inspect the code, star it, fork it, or raise an issue where the project lives.</p>
         </div>
       </div>
 
@@ -76,7 +74,7 @@
             repo="JackRiebel/mcp-c-suite-to-noc"
             issue-term="pathname"
             label="site-comment"
-            theme="github-dark"
+            theme="github-light"
             crossorigin="anonymous"
             async>
           </script>
