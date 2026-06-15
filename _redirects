@@ -1,11 +1,6 @@
 /home / 301
 /about / 301
-/blogs /blogs.html 200
-/repos /repos.html 200
-/connect /connect.html 200
-/cisco-live-2026 /cisco-live-2026-midmarket.html 301
-/mcp /mcp-c-suite-to-noc.html 301
-/agent-shadow-it /agent-shadow-it.html 301
-/ai-jobs-impact /ai-jobs-impact.html 301
-/ai-workforce /ai-jobs-impact.html 301
+/cisco-live-2026 /cisco-live-2026-midmarket 301
+/mcp /mcp-c-suite-to-noc 301
+/ai-workforce /ai-jobs-impact 301
 /* /404.html 404
