@@ -20,7 +20,7 @@
   <meta name="twitter:image" content="https://jackriebel.com/cloud-control-canvas.png">
 
   <script src="theme.js"></script>
-  <link rel="stylesheet" href="styles.css?v=20260615-layout">
+  <link rel="stylesheet" href="styles.css?v=20260615-engagement">
 </head>
 <body class="live26-page article-page">
 
@@ -38,7 +38,7 @@
         <p class="subtitle">Cisco Live US 2026 covered a lot of ground, but the biggest takeaway is clear: <strong>Cloud Control</strong> is becoming the secure harness for the agentic era. That matters because your infrastructure now needs to support human operators, AI agents, custom workflows, and runtime defenses without losing governance, identity, policy, or control.</p>
 
         <div class="author-byline">
-          <img class="author-photo" src="Screenshot%202026-03-25%20at%201.28.57%E2%80%AFPM%20Large.jpeg" alt="Jack Riebel">
+          <img class="author-photo" src="profile-avatar.jpg" alt="Jack Riebel">
           <div class="author-info">
             <span class="author-name">Jack Riebel</span>
             <span class="author-date">June 2026</span>
@@ -527,6 +527,45 @@
     </div>
   </section>
 
+  <section class="article-engagement" data-engagement-post="cisco-live-2026" aria-labelledby="engagement-cisco-live-2026">
+    <div class="container">
+      <div class="article-engagement-card">
+        <div class="article-engagement-head">
+          <div>
+            <span class="article-engagement-kicker">Join the thread</span>
+            <h2 id="engagement-cisco-live-2026">React or leave a comment.</h2>
+            <p>Public reactions and comments help keep the conversation attached to the brief.</p>
+          </div>
+          <div class="article-reactions" aria-label="Article reactions">
+            <button class="article-reaction" type="button" data-reaction="like" aria-pressed="false">
+              <span>Like</span>
+              <strong data-reaction-count>0</strong>
+            </button>
+            <button class="article-reaction" type="button" data-reaction="insightful" aria-pressed="false">
+              <span>Insightful</span>
+              <strong data-reaction-count>0</strong>
+            </button>
+          </div>
+        </div>
+
+        <form class="article-comment-form" data-comment-form>
+          <input class="article-honeypot" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <div class="article-comment-fields">
+            <label>Name<input type="text" name="name" maxlength="80" required></label>
+            <label>Link optional<input type="url" name="link" maxlength="240" placeholder="https://linkedin.com/in/..."></label>
+          </div>
+          <label>Comment<textarea name="body" rows="4" maxlength="1200" required></textarea></label>
+          <div class="article-comment-actions">
+            <button type="submit">Post comment</button>
+            <p data-engagement-message aria-live="polite"></p>
+          </div>
+        </form>
+
+        <div class="article-comments-list" data-comments-list aria-live="polite"></div>
+      </div>
+    </div>
+  </section>
+
   <footer class="live26-footer">
     <div class="live26-simple-views" aria-label="View count">
       <span id="live26ViewCount">1</span>
@@ -537,5 +576,6 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="cisco-live-2026-data.js"></script>
   <script src="cisco-live-2026-charts.js"></script>
+  <script src="engagement.js?v=20260615-engagement"></script>
 </body>
 </html>

@@ -21,7 +21,7 @@
   <meta name="twitter:image" content="https://jackriebel.com/MCP.png">
 
   <script src="theme.js"></script>
-  <link rel="stylesheet" href="styles.css?v=20260615-layout">
+  <link rel="stylesheet" href="styles.css?v=20260615-engagement">
 </head>
 <body class="article-page mcp-page">
 
@@ -40,7 +40,7 @@
         <p class="subtitle">For years, the data inside your security and network tools has only been useful to engineers. The Model Context Protocol (MCP) changes that — one open standard lets AI talk to your entire stack, giving executives plain-English answers and giving your NOC and SOC the speed to match the volume of threats they face.</p>
 
         <div class="author-byline">
-          <img class="author-photo" src="Screenshot%202026-03-25%20at%201.28.57%E2%80%AFPM%20Large.jpeg" alt="Jack Riebel">
+          <img class="author-photo" src="profile-avatar.jpg" alt="Jack Riebel">
           <div class="author-info">
             <span class="author-name">Jack Riebel</span>
             <span class="author-date">April 2026</span>
@@ -496,6 +496,45 @@
    </div>
   </section>
 
+  <section class="article-engagement" data-engagement-post="mcp-c-suite-to-noc" aria-labelledby="engagement-mcp-c-suite-to-noc">
+   <div class="container">
+    <div class="article-engagement-card">
+      <div class="article-engagement-head">
+        <div>
+          <span class="article-engagement-kicker">Join the thread</span>
+          <h2 id="engagement-mcp-c-suite-to-noc">React or leave a comment.</h2>
+          <p>Public reactions and comments help keep the conversation attached to the article.</p>
+        </div>
+        <div class="article-reactions" aria-label="Article reactions">
+          <button class="article-reaction" type="button" data-reaction="like" aria-pressed="false">
+            <span>Like</span>
+            <strong data-reaction-count>0</strong>
+          </button>
+          <button class="article-reaction" type="button" data-reaction="insightful" aria-pressed="false">
+            <span>Insightful</span>
+            <strong data-reaction-count>0</strong>
+          </button>
+        </div>
+      </div>
+
+      <form class="article-comment-form" data-comment-form>
+        <input class="article-honeypot" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <div class="article-comment-fields">
+          <label>Name<input type="text" name="name" maxlength="80" required></label>
+          <label>Link optional<input type="url" name="link" maxlength="240" placeholder="https://linkedin.com/in/..."></label>
+        </div>
+        <label>Comment<textarea name="body" rows="4" maxlength="1200" required></textarea></label>
+        <div class="article-comment-actions">
+          <button type="submit">Post comment</button>
+          <p data-engagement-message aria-live="polite"></p>
+        </div>
+      </form>
+
+      <div class="article-comments-list" data-comments-list aria-live="polite"></div>
+    </div>
+   </div>
+  </section>
+
   <!-- ===================== FOOTER ===================== -->
   <footer>
     <p>Written by Jack Riebel &middot; April 2026 &middot; Data sourced from cited research</p>
@@ -508,5 +547,6 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4"></script>
   <script src="data.js"></script>
   <script src="charts.js"></script>
+  <script src="engagement.js?v=20260615-engagement"></script>
 </body>
 </html>

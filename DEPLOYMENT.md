@@ -15,13 +15,13 @@ GitHub repository: `JackRiebel/jackriebel-site`
 - `_headers` provides basic static-host security and cache headers.
 - `_redirects` provides clean short paths for hosts that support Netlify/Cloudflare-style redirects.
 - `.nojekyll` keeps GitHub Pages from applying Jekyll processing.
+- Cloudflare Pages Functions power public blog reactions and comments.
+- Cloudflare D1 database `jackriebel_site` is bound as `DB` in `wrangler.toml`.
 
 ## Not Done Yet
 
-- No Cloudflare Pages project has been created from this workspace.
-- No DNS records have been changed from this workspace.
-- No hosting service has been activated or deployed from this workspace.
-- No analytics or server-side comment backend has been added.
+- Apply D1 migrations if a new environment is created:
+  `npm exec wrangler -- d1 execute jackriebel_site --remote --file=migrations/0001_engagement.sql`
 
 ## Go-Live Checklist
 
@@ -47,6 +47,8 @@ GitHub repository: `JackRiebel/jackriebel-site`
 ```bash
 node --check site.js
 node --check theme.js
+node --check engagement.js
+node --check functions/api/engagement.js
 node --check charts.js
 node --check cisco-live-2026-charts.js
 node --check agent-shadow-charts.js

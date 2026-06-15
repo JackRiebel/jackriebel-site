@@ -1,0 +1,8 @@
+name = "jackriebel-site"
+pages_build_output_dir = "."
+compatibility_date = "2026-06-15"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "jackriebel_site"
+database_id = "e993aaff-7049-49e6-aa2c-29e0e5d185fe"
