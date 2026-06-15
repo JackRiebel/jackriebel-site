@@ -8495,3 +8495,35 @@ body.article-page .article-comment p {
     min-height: 0;
   }
 }
+
+/* ── Final Dark Theme Card Polish ─────────────────────────────────────── */
+html[data-theme="dark"] body.site-home .site-work-card,
+html[data-theme="dark"] body.site-home .site-connect-card,
+html[data-theme="dark"] body.site-home .site-connect-note {
+  border-color: rgba(255, 255, 255, 0.16);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0.012)),
+    #050506;
+  box-shadow: 0 18px 46px rgba(0, 0, 0, 0.38);
+}
+
+html[data-theme="dark"] body.site-home .site-work-card::before,
+html[data-theme="dark"] body.site-home .site-connect-card::before {
+  opacity: 0.95;
+}
+
+html[data-theme="dark"] body.site-home .site-work-tags em {
+  color: rgba(245, 245, 247, 0.72);
+  border-color: rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.045);
+}
+
+html[data-theme="dark"] body.site-home .site-work-card:hover,
+html[data-theme="dark"] body.site-home .site-connect-card:hover,
+html[data-theme="dark"] body.site-home .site-work-card:focus-visible,
+html[data-theme="dark"] body.site-home .site-connect-card:focus-visible {
+  border-color: var(--theme-link);
+  background:
+    linear-gradient(180deg, rgba(0, 113, 227, 0.10), rgba(255, 255, 255, 0.014)),
+    #050506;
+}
