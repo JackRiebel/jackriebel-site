@@ -3,18 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Jack Riebel | About, Blogs, and Public Projects</title>
+  <title>Jack Riebel | About</title>
 
-  <meta name="description" content="Personal site for Jack Riebel, featuring field briefs, technical blogs, public GitHub projects, and notes on AI, infrastructure, and security operations.">
-  <meta property="og:title" content="Jack Riebel | About, Blogs, and Public Projects">
-  <meta property="og:description" content="About Jack Riebel, with field briefs, technical blogs, public GitHub projects, and conversation around AI, infrastructure, and security operations.">
-  <meta property="og:image" content="https://jackriebel.github.io/mcp-c-suite-to-noc/cloud-control-canvas.png">
+  <meta name="description" content="About Jack Riebel, with technical blogs, public GitHub projects, and notes on AI, infrastructure, and security operations.">
+  <meta property="og:title" content="Jack Riebel | About">
+  <meta property="og:description" content="About Jack Riebel, with technical blogs, public GitHub projects, and notes on AI, infrastructure, and security operations.">
+  <meta property="og:image" content="cloud-control-canvas.png">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://jackriebel.github.io/mcp-c-suite-to-noc/">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Jack Riebel | About, Blogs, and Public Projects">
-  <meta name="twitter:description" content="About Jack Riebel, with field briefs, technical blogs, public GitHub projects, and notes on AI, infrastructure, and security operations.">
-  <meta name="twitter:image" content="https://jackriebel.github.io/mcp-c-suite-to-noc/cloud-control-canvas.png">
+  <meta name="twitter:title" content="Jack Riebel | About">
+  <meta name="twitter:description" content="Technical writing, public builds, and operating-model notes from Jack Riebel.">
+  <meta name="twitter:image" content="cloud-control-canvas.png">
 
   <link rel="stylesheet" href="styles.css">
 </head>
@@ -23,20 +22,20 @@
 
   <header class="site-shell">
     <nav class="site-topbar" aria-label="Primary">
-      <a class="site-mark" href="#top" aria-label="Jack Riebel home">
+      <a class="site-mark" href="index.html" aria-label="Jack Riebel home">
         <span>JR</span>
         <strong>Jack Riebel</strong>
       </a>
       <div class="site-nav">
-        <a href="#top">About</a>
-        <a href="#blogs">Blogs</a>
-        <a href="#repos">Repos</a>
-        <a href="#connect">Connect</a>
+        <a class="active" href="index.html">About</a>
+        <a href="blogs.html">Blogs</a>
+        <a href="repos.html">Repos</a>
+        <a href="connect.html">Connect</a>
       </div>
       <a class="site-ghost-btn" href="https://github.com/JackRiebel" target="_blank" rel="noreferrer">GitHub</a>
     </nav>
 
-    <section id="top" class="site-hero">
+    <section class="site-hero site-about-hero">
       <div class="site-hero-copy">
         <div class="site-kicker">
           <span>About me</span>
@@ -48,7 +47,7 @@
         <div class="site-about-grid" aria-label="About Jack Riebel">
           <div>
             <span>What I write about</span>
-            <strong>Agentic operations, networking, security, and infrastructure strategy.</strong>
+            <strong>Agentic operations, networking, security, infrastructure strategy, and executive translation.</strong>
           </div>
           <div>
             <span>What I build</span>
@@ -56,33 +55,29 @@
           </div>
         </div>
         <div class="site-actions">
-          <a class="site-primary-btn" href="#blogs">Read the blogs</a>
-          <a class="site-secondary-btn" href="#repos">Browse the repos</a>
+          <a class="site-primary-btn" href="blogs.html">Read the blogs</a>
+          <a class="site-secondary-btn" href="repos.html">Browse repos</a>
         </div>
       </div>
 
-      <aside class="site-signal-panel site-about-panel" aria-label="About Jack Riebel">
+      <aside class="site-signal-panel site-about-panel" aria-label="Profile summary">
         <img class="site-about-photo" src="Screenshot%202026-03-25%20at%201.28.57%E2%80%AFPM%20Large.jpeg" alt="Jack Riebel">
         <div class="site-signal-header">
-          <span>Site map</span>
-          <strong>Start here, then go deeper.</strong>
+          <span>Current focus</span>
+          <strong>Making complex infrastructure shifts easier to explain.</strong>
         </div>
         <div class="site-signal-grid">
           <div>
             <span>Blogs</span>
-            <strong>Long-form field briefs and practical explainers.</strong>
+            <strong>Field briefs and practical explainers.</strong>
           </div>
           <div>
             <span>Repos</span>
-            <strong>Public GitHub projects I want to share.</strong>
+            <strong>Public GitHub projects worth sharing.</strong>
           </div>
           <div>
             <span>Connect</span>
             <strong>Comment on the site or open the work on GitHub.</strong>
-          </div>
-          <div>
-            <span>Focus</span>
-            <strong>AI, infrastructure, security, and leadership translation.</strong>
           </div>
         </div>
       </aside>
@@ -90,122 +85,29 @@
   </header>
 
   <main>
-    <section id="blogs" class="site-section">
-      <div class="site-section-head">
-        <span>Blogs</span>
-        <h2>Latest Field Briefs and Essays</h2>
-        <p>Long-form pieces built for IT leaders, architects, and operators who need the real point without losing the technical edge.</p>
+    <section class="site-section site-home-preview">
+      <div class="site-section-head compact">
+        <span>Start here</span>
+        <h2>Explore the site</h2>
+        <p>Three simple paths: read the writing, open the code, or start a conversation.</p>
       </div>
 
-      <div class="site-blog-grid">
-        <article class="site-blog-card featured">
-          <div class="site-card-media">
-            <img src="cloud-control-canvas.png" alt="Cisco Cloud Control AI Canvas interface preview">
-          </div>
-          <div class="site-card-body">
-            <div class="site-card-meta">
-              <span>June 2026</span>
-              <span>Cisco Live</span>
-            </div>
-            <h3><a href="cisco-live-2026-midmarket.html">Cisco Live US 2026: Cloud Control and the New Operating Model for IT</a></h3>
-            <p>Why Cloud Control is the center of the agentic operations story, with AI Canvas, Studio, Marketplace, Cisco IQ, PQC, and Live Protect in context.</p>
-            <div class="site-card-actions">
-              <a href="cisco-live-2026-midmarket.html">Read brief</a>
-              <button class="site-like-btn" type="button" data-like-id="cisco-live-2026">Like</button>
-            </div>
-          </div>
-        </article>
-
-        <article class="site-blog-card">
-          <div class="site-card-body">
-            <div class="site-card-meta">
-              <span>April 2026</span>
-              <span>MCP</span>
-            </div>
-            <h3><a href="mcp-c-suite-to-noc.html">MCP: From C-Suite to NOC</a></h3>
-            <p>How the Model Context Protocol can turn technical systems into a more usable intelligence layer for operators and executives.</p>
-            <div class="site-card-actions">
-              <a href="mcp-c-suite-to-noc.html">Read article</a>
-              <button class="site-like-btn" type="button" data-like-id="mcp-c-suite-to-noc">Like</button>
-            </div>
-          </div>
-        </article>
-
-        <article class="site-blog-card">
-          <div class="site-card-body">
-            <div class="site-card-meta">
-              <span>May 2026</span>
-              <span>Agent security</span>
-            </div>
-            <h3><a href="agent-shadow-it.html">AI Agents Are the New Shadow IT</a></h3>
-            <p>Agentic AI is moving from copilots to coworkers. The security model has to move with it: identity, least privilege, runtime inspection, and recovery.</p>
-            <div class="site-card-actions">
-              <a href="agent-shadow-it.html">Read article</a>
-              <button class="site-like-btn" type="button" data-like-id="agent-shadow-it">Like</button>
-            </div>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <section id="repos" class="site-section alt">
-      <div class="site-section-head">
-        <span>Public GitHub</span>
-        <h2>Repos Worth Opening</h2>
-        <p>The live repo shelf pulls from GitHub and falls back to a curated set if the API is unavailable.</p>
-      </div>
-
-      <div class="site-repo-toolbar">
-        <a href="https://github.com/JackRiebel?tab=repositories" target="_blank" rel="noreferrer">View all repositories</a>
-        <button class="site-secondary-btn small" type="button" id="refreshRepos">Refresh repo shelf</button>
-      </div>
-
-      <div class="site-repo-grid" id="repoGrid" aria-live="polite">
-        <div class="site-repo-loading">Loading public repos...</div>
-      </div>
-    </section>
-
-    <section id="connect" class="site-section">
-      <div class="site-section-head">
-        <span>Connect</span>
-        <h2>Read, React, and Start a Thread</h2>
-        <p>This site is meant to be a conversation surface, not a static archive.</p>
-      </div>
-
-      <div class="site-engage-grid">
-        <div class="site-engage-card">
-          <span>Article reactions</span>
-          <h3>Like the briefs you want more of</h3>
-          <p>Use the like controls to keep track of the pieces you want to revisit and the topics you want to see more often.</p>
-        </div>
-        <div class="site-engage-card">
-          <span>Comments</span>
-          <h3>Use GitHub-backed discussion threads</h3>
-          <p>The comment area below is wired for GitHub Issues through Utterances, so readers can leave real comments after signing in with GitHub.</p>
-        </div>
-        <div class="site-engage-card">
+      <div class="site-preview-grid">
+        <a class="site-preview-card" href="blogs.html">
+          <span>Blogs</span>
+          <strong>Field briefs and essays</strong>
+          <p>Cisco Live, MCP, AI agents, security operations, and infrastructure strategy.</p>
+        </a>
+        <a class="site-preview-card" href="repos.html">
           <span>Repos</span>
-          <h3>Star, fork, or open the code</h3>
-          <p>Repo cards link directly to GitHub so readers can inspect the work, star it, fork it, or raise an issue where the project lives.</p>
-        </div>
-      </div>
-
-      <div class="site-comment-panel">
-        <div>
-          <span>Open Thread</span>
-          <h3>Leave a comment on the site</h3>
-          <p>Comments are tied to this page through GitHub, so the discussion stays connected to the public work.</p>
-        </div>
-        <div class="site-comments">
-          <script src="https://utteranc.es/client.js"
-            repo="JackRiebel/mcp-c-suite-to-noc"
-            issue-term="pathname"
-            label="site-comment"
-            theme="github-dark"
-            crossorigin="anonymous"
-            async>
-          </script>
-        </div>
+          <strong>Public GitHub shelf</strong>
+          <p>Projects, demos, and supporting code that I want to make easier to find.</p>
+        </a>
+        <a class="site-preview-card" href="connect.html">
+          <span>Connect</span>
+          <strong>Comments and threads</strong>
+          <p>Leave a note, react to the work, or open the conversation on GitHub.</p>
+        </a>
       </div>
     </section>
   </main>
@@ -216,9 +118,9 @@
       <span>Field notes, public builds, and operating-model work.</span>
     </div>
     <div class="site-footer-links">
-      <a href="https://github.com/JackRiebel" target="_blank" rel="noreferrer">GitHub</a>
-      <a href="#blogs">Blogs</a>
-      <a href="#connect">Comments</a>
+      <a href="blogs.html">Blogs</a>
+      <a href="repos.html">Repos</a>
+      <a href="connect.html">Connect</a>
     </div>
   </footer>
 

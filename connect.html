@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jack Riebel | Connect</title>
+
+  <meta name="description" content="Connect with Jack Riebel, leave comments, and open public GitHub threads.">
+  <meta property="og:title" content="Jack Riebel | Connect">
+  <meta property="og:description" content="Leave comments, react to the work, or open public GitHub threads.">
+  <meta property="og:image" content="cloud-control-canvas.png">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Jack Riebel | Connect">
+  <meta name="twitter:description" content="Leave comments, react to the work, or open public GitHub threads.">
+  <meta name="twitter:image" content="cloud-control-canvas.png">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="site-home">
+  <div class="reading-progress" id="readingProgress"></div>
+
+  <header class="site-shell">
+    <nav class="site-topbar" aria-label="Primary">
+      <a class="site-mark" href="index.html" aria-label="Jack Riebel home">
+        <span>JR</span>
+        <strong>Jack Riebel</strong>
+      </a>
+      <div class="site-nav">
+        <a href="index.html">About</a>
+        <a href="blogs.html">Blogs</a>
+        <a href="repos.html">Repos</a>
+        <a class="active" href="connect.html">Connect</a>
+      </div>
+      <a class="site-ghost-btn" href="https://github.com/JackRiebel" target="_blank" rel="noreferrer">GitHub</a>
+    </nav>
+
+    <section class="site-page-hero">
+      <div class="site-kicker">
+        <span>Connect</span>
+        <span>Comments</span>
+      </div>
+      <h1>Start a thread.</h1>
+      <p>Use this page to leave a note, react to the work, or jump into the public GitHub surface behind the site.</p>
+    </section>
+  </header>
+
+  <main>
+    <section class="site-section compact">
+      <div class="site-engage-grid">
+        <div class="site-engage-card">
+          <span>Article reactions</span>
+          <h3>Save the briefs you like</h3>
+          <p>Use the like controls on the blog cards to keep track of the pieces you want to revisit and the topics you want to see more often.</p>
+        </div>
+        <div class="site-engage-card">
+          <span>Comments</span>
+          <h3>Use GitHub-backed discussion threads</h3>
+          <p>The comment area below is wired for GitHub Issues through Utterances, so readers can leave real comments after signing in with GitHub.</p>
+        </div>
+        <div class="site-engage-card">
+          <span>Repos</span>
+          <h3>Star, fork, or open the code</h3>
+          <p>Repo cards link directly to GitHub so readers can inspect the work, star it, fork it, or raise an issue where the project lives.</p>
+        </div>
+      </div>
+
+      <div class="site-comment-panel">
+        <div>
+          <span>Open Thread</span>
+          <h3>Leave a comment on the site</h3>
+          <p>Comments are tied to this page through GitHub, so the discussion stays connected to the public work.</p>
+        </div>
+        <div class="site-comments">
+          <script src="https://utteranc.es/client.js"
+            repo="JackRiebel/mcp-c-suite-to-noc"
+            issue-term="pathname"
+            label="site-comment"
+            theme="github-dark"
+            crossorigin="anonymous"
+            async>
+          </script>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div>
+      <strong>Jack Riebel</strong>
+      <span>Field notes, public builds, and operating-model work.</span>
+    </div>
+    <div class="site-footer-links">
+      <a href="index.html">About</a>
+      <a href="blogs.html">Blogs</a>
+      <a href="repos.html">Repos</a>
+    </div>
+  </footer>
+
+  <script src="site.js"></script>
+</body>
+</html>

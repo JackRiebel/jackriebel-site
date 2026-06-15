@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jack Riebel | Repos</title>
+
+  <meta name="description" content="Public GitHub repositories and projects from Jack Riebel.">
+  <meta property="og:title" content="Jack Riebel | Repos">
+  <meta property="og:description" content="Public GitHub repositories and projects from Jack Riebel.">
+  <meta property="og:image" content="cloud-control-canvas.png">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Jack Riebel | Repos">
+  <meta name="twitter:description" content="Public GitHub repositories and projects from Jack Riebel.">
+  <meta name="twitter:image" content="cloud-control-canvas.png">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="site-home">
+  <div class="reading-progress" id="readingProgress"></div>
+
+  <header class="site-shell">
+    <nav class="site-topbar" aria-label="Primary">
+      <a class="site-mark" href="index.html" aria-label="Jack Riebel home">
+        <span>JR</span>
+        <strong>Jack Riebel</strong>
+      </a>
+      <div class="site-nav">
+        <a href="index.html">About</a>
+        <a href="blogs.html">Blogs</a>
+        <a class="active" href="repos.html">Repos</a>
+        <a href="connect.html">Connect</a>
+      </div>
+      <a class="site-ghost-btn" href="https://github.com/JackRiebel" target="_blank" rel="noreferrer">GitHub</a>
+    </nav>
+
+    <section class="site-page-hero">
+      <div class="site-kicker">
+        <span>Public GitHub</span>
+        <span>Projects</span>
+      </div>
+      <h1>Repos worth opening.</h1>
+      <p>A public shelf of code, demos, and supporting projects. The live repo list pulls from GitHub and falls back gracefully if the API is unavailable.</p>
+    </section>
+  </header>
+
+  <main>
+    <section class="site-section compact">
+      <div class="site-repo-toolbar">
+        <a href="https://github.com/JackRiebel?tab=repositories" target="_blank" rel="noreferrer">View all repositories</a>
+        <button class="site-secondary-btn small" type="button" id="refreshRepos">Refresh repo shelf</button>
+      </div>
+
+      <div class="site-repo-grid" id="repoGrid" aria-live="polite">
+        <div class="site-repo-loading">Loading public repos...</div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div>
+      <strong>Jack Riebel</strong>
+      <span>Field notes, public builds, and operating-model work.</span>
+    </div>
+    <div class="site-footer-links">
+      <a href="index.html">About</a>
+      <a href="blogs.html">Blogs</a>
+      <a href="connect.html">Connect</a>
+    </div>
+  </footer>
+
+  <script src="site.js"></script>
+</body>
+</html>
