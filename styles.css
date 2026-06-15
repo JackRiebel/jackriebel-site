@@ -5850,6 +5850,125 @@ footer {
   line-height: 1.22;
 }
 
+.site-personal-hero .site-hero-lede {
+  max-width: 760px;
+}
+
+.site-personal-hero.site-hero {
+  padding-top: clamp(44px, 7vw, 86px);
+}
+
+.site-personal-hero h1 {
+  max-width: 720px;
+  font-size: clamp(40px, 5.65vw, 66px);
+}
+
+.site-personal-hero .site-about-photo {
+  width: min(100%, 292px);
+}
+
+.site-hero-note {
+  max-width: 640px;
+  margin-top: 14px;
+  color: #86868b;
+  font-size: 17px;
+  line-height: 1.5;
+}
+
+.site-profile-card {
+  align-self: stretch;
+}
+
+.site-profile-copy p:last-child {
+  max-width: 300px;
+  margin-top: 12px;
+  color: #6e6e73;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.site-profile-facts {
+  display: grid;
+  gap: 0;
+  margin-top: 24px;
+  border-top: 1px solid #d2d2d7;
+}
+
+.site-profile-facts div {
+  padding: 15px 0;
+  border-bottom: 1px solid #d2d2d7;
+}
+
+.site-profile-facts span,
+.site-about-principles span {
+  display: block;
+  color: #86868b;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+
+.site-profile-facts strong {
+  max-width: none;
+  margin-top: 6px;
+  color: #1d1d1f;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.site-about-work {
+  padding-top: clamp(36px, 6vw, 70px);
+}
+
+.site-about-story {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(320px, 0.75fr);
+  gap: clamp(28px, 6vw, 72px);
+  align-items: start;
+  padding-top: 12px;
+  border-top: 1px solid #d2d2d7;
+}
+
+.site-about-story > div:first-child p {
+  max-width: 680px;
+  margin: 0 0 18px;
+  color: #1d1d1f;
+  font-size: clamp(18px, 2vw, 22px);
+  line-height: 1.48;
+}
+
+.site-about-story > div:first-child p:last-child {
+  color: #6e6e73;
+}
+
+.site-about-principles {
+  display: grid;
+  gap: 0;
+  border-top: 1px solid #d2d2d7;
+}
+
+.site-about-principles div {
+  padding: 18px 0;
+  border-bottom: 1px solid #d2d2d7;
+}
+
+.site-about-principles strong {
+  display: block;
+  margin-top: 8px;
+  color: #1d1d1f;
+  font-size: 20px;
+  font-weight: 650;
+  line-height: 1.15;
+}
+
+.site-about-principles p {
+  margin: 8px 0 0;
+  color: #6e6e73;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
 .site-about-grid,
 .site-signal-grid {
   display: none;
@@ -6236,7 +6355,8 @@ footer {
 
   .site-hero,
   .site-blog-card,
-  .site-comment-panel {
+  .site-comment-panel,
+  .site-about-story {
     grid-template-columns: 1fr;
   }
 
@@ -7218,6 +7338,35 @@ body.agent-page.article-page .room-node::before {
 
 body.agent-page.article-page .floor-meta {
   min-width: 0;
+}
+
+body.site-home .site-hero-note,
+body.site-home .site-profile-copy p:last-child,
+body.site-home .site-about-principles p {
+  color: var(--theme-muted);
+}
+
+body.site-home .site-profile-facts,
+body.site-home .site-profile-facts div,
+body.site-home .site-about-story,
+body.site-home .site-about-principles,
+body.site-home .site-about-principles div {
+  border-color: var(--theme-line);
+}
+
+body.site-home .site-profile-facts strong,
+body.site-home .site-about-story > div:first-child p,
+body.site-home .site-about-principles strong {
+  color: var(--theme-text-strong);
+}
+
+body.site-home .site-about-story > div:first-child p:last-child {
+  color: var(--theme-muted);
+}
+
+body.site-home .site-profile-facts span,
+body.site-home .site-about-principles span {
+  color: var(--theme-muted-2);
 }
 
 body.article-page .back-to-top {
