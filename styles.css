@@ -7061,6 +7061,165 @@ body.live26-page.article-page .live26-scope-note > div:nth-child(2) span {
   color: color-mix(in srgb, var(--yellow) 75%, var(--theme-text-strong));
 }
 
+/* ── Agent Shadow IT fabric view polish: final theme correction ───────── */
+body.agent-page.article-page .agent-control-card,
+body.agent-page.article-page .building-request-panel,
+body.agent-page.article-page .security-elevator,
+body.agent-page.article-page .enterprise-building,
+body.agent-page.article-page .fabric-verdict,
+body.agent-page.article-page .microseg-note {
+  color: var(--theme-text);
+  border-color: var(--theme-soft-line);
+  background: var(--theme-surface);
+  box-shadow: var(--theme-shadow);
+}
+
+body.agent-page.article-page .request-card,
+body.agent-page.article-page .agent-badge-card,
+body.agent-page.article-page .sase-cloud,
+body.agent-page.article-page .elevator-title,
+body.agent-page.article-page .elevator-gate,
+body.agent-page.article-page .building-label,
+body.agent-page.article-page .building-floor,
+body.agent-page.article-page .floor-meta,
+body.agent-page.article-page .room-node {
+  color: var(--theme-text);
+  border-color: var(--theme-soft-line);
+  background: var(--theme-surface-soft);
+  box-shadow: none;
+}
+
+body.agent-page.article-page .agent-mode-switch {
+  border-color: var(--theme-soft-line);
+  background: var(--theme-surface-soft);
+}
+
+body.agent-page.article-page .agent-mode-btn {
+  color: var(--theme-muted);
+  border: 1px solid transparent;
+  background: transparent;
+}
+
+body.agent-page.article-page .agent-mode-btn:hover {
+  color: var(--theme-link);
+  border-color: var(--theme-link);
+  background: var(--theme-surface);
+}
+
+body.agent-page.article-page .agent-mode-btn.active {
+  color: #062c1e;
+  border-color: color-mix(in srgb, var(--green) 44%, var(--theme-soft-line));
+  background: color-mix(in srgb, var(--green) 22%, var(--theme-surface));
+  box-shadow: none;
+}
+
+body.agent-page.article-page .agent-mode-btn.active.danger {
+  color: #4b0d12;
+  border-color: color-mix(in srgb, var(--red) 44%, var(--theme-soft-line));
+  background: color-mix(in srgb, var(--red) 18%, var(--theme-surface));
+}
+
+html[data-theme="dark"] body.agent-page.article-page .agent-mode-btn.active {
+  color: var(--green);
+}
+
+html[data-theme="dark"] body.agent-page.article-page .agent-mode-btn.active.danger {
+  color: var(--red);
+}
+
+body.agent-page.article-page .request-card span,
+body.agent-page.article-page .elevator-title span,
+body.agent-page.article-page .building-label span,
+body.agent-page.article-page .floor-meta span,
+body.agent-page.article-page .agent-eyebrow,
+body.agent-page.article-page .sase-cloud span {
+  color: var(--theme-link);
+}
+
+body.agent-page.article-page .request-card p,
+body.agent-page.article-page .agent-badge-card small,
+body.agent-page.article-page .sase-cloud small,
+body.agent-page.article-page .elevator-gate span,
+body.agent-page.article-page .elevator-gate small,
+body.agent-page.article-page .room-node small,
+body.agent-page.article-page .fabric-verdict p,
+body.agent-page.article-page .microseg-note p,
+body.agent-page.article-page .access-legend span {
+  color: var(--theme-muted);
+}
+
+body.agent-page.article-page .agent-badge-card strong,
+body.agent-page.article-page .sase-cloud strong,
+body.agent-page.article-page .elevator-title strong,
+body.agent-page.article-page .elevator-gate strong,
+body.agent-page.article-page .building-label strong,
+body.agent-page.article-page .floor-meta strong,
+body.agent-page.article-page .room-node strong,
+body.agent-page.article-page .fabric-verdict span,
+body.agent-page.article-page .microseg-note span {
+  color: var(--theme-text-strong);
+}
+
+body.agent-page.article-page .agent-badge-card.active-agent,
+body.agent-page.article-page .agent-badge-card:hover {
+  border-color: color-mix(in srgb, var(--theme-link) 38%, var(--theme-soft-line));
+  background: color-mix(in srgb, var(--theme-link) 8%, var(--theme-surface));
+}
+
+body.agent-page.article-page .agent-badge-orb {
+  color: var(--theme-link);
+  border-color: color-mix(in srgb, var(--theme-link) 35%, var(--theme-soft-line));
+  background: color-mix(in srgb, var(--theme-link) 12%, var(--theme-surface));
+  box-shadow: none;
+}
+
+body.agent-page.article-page .sase-cloud::before,
+body.agent-page.article-page .sase-cloud::after {
+  background: color-mix(in srgb, var(--theme-link) 10%, transparent);
+}
+
+body.agent-page.article-page .elevator-title,
+body.agent-page.article-page .fabric-verdict.weak,
+body.agent-page.article-page .building-floor.restricted,
+body.agent-page.article-page .room-node.open,
+body.agent-page.article-page .room-node.blocked,
+body.agent-page.article-page .elevator-gate.weak {
+  border-color: color-mix(in srgb, var(--red) 24%, var(--theme-soft-line));
+  background: color-mix(in srgb, var(--red) 6%, var(--theme-surface));
+}
+
+body.agent-page.article-page .agent-control-card[data-agent-state="governed"] .elevator-title,
+body.agent-page.article-page .agent-control-card[data-agent-state="governed"] .building-floor,
+body.agent-page.article-page .fabric-verdict.strong,
+body.agent-page.article-page .elevator-gate.strong,
+body.agent-page.article-page .room-node.allowed {
+  border-color: color-mix(in srgb, var(--green) 28%, var(--theme-soft-line));
+  background: color-mix(in srgb, var(--green) 7%, var(--theme-surface));
+}
+
+body.agent-page.article-page .room-node.review {
+  border-color: color-mix(in srgb, var(--yellow) 34%, var(--theme-soft-line));
+  background: color-mix(in srgb, var(--yellow) 8%, var(--theme-surface));
+}
+
+body.agent-page.article-page .building-label strong {
+  color: color-mix(in srgb, var(--red) 78%, var(--theme-text-strong));
+}
+
+body.agent-page.article-page .agent-control-card[data-agent-state="governed"] .building-label strong {
+  color: color-mix(in srgb, var(--green) 78%, var(--theme-text-strong));
+}
+
+body.agent-page.article-page .elevator-gate::before,
+body.agent-page.article-page .room-node::before {
+  border-color: var(--theme-surface);
+  box-shadow: none;
+}
+
+body.agent-page.article-page .floor-meta {
+  min-width: 0;
+}
+
 @media (max-width: 760px) {
   body.site-home .site-shell,
   body.site-home .site-section,
