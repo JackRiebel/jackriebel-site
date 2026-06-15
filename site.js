@@ -8,9 +8,9 @@
 
   const fallbackRepos = [
     {
-      name: 'mcp-c-suite-to-noc',
+      name: 'jackriebel-site',
       description: 'Public blog and field-brief site for MCP, agentic operations, and Cisco Live analysis.',
-      html_url: 'https://github.com/JackRiebel/mcp-c-suite-to-noc',
+      html_url: 'https://github.com/JackRiebel/jackriebel-site',
       language: 'HTML',
       stargazers_count: 0,
       forks_count: 0,

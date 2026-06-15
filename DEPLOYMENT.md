@@ -2,6 +2,8 @@
 
 This repository is prepared for `https://jackriebel.com`, but hosting and DNS are intentionally not activated from this workspace yet.
 
+GitHub repository: `JackRiebel/jackriebel-site`
+
 ## Prepared
 
 - Canonical URLs point to `https://jackriebel.com`.
@@ -24,7 +26,7 @@ This repository is prepared for `https://jackriebel.com`, but hosting and DNS ar
 ## Go-Live Checklist
 
 1. Choose the host for `jackriebel.com`.
-2. Connect this repository or upload the static files.
+2. Connect `JackRiebel/jackriebel-site` or upload the static files.
 3. Point DNS to the host-provided target.
 4. Enable HTTPS.
 5. Verify these URLs:
