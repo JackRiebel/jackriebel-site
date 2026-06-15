@@ -3,18 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <base href="/">
   <link rel="icon" type="image/png" href="favicon.png">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <title>Jack Riebel | Connect</title>
 
   <meta name="description" content="Connect with Jack Riebel, leave comments, and open public GitHub threads.">
-  <link rel="canonical" href="https://jackriebel.com/connect/">
+  <link rel="canonical" href="https://jackriebel.com/connect">
   <meta property="og:title" content="Jack Riebel | Connect">
   <meta property="og:description" content="Leave comments, react to the work, or open public GitHub threads.">
   <meta property="og:image" content="https://jackriebel.com/cloud-control-canvas.png">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://jackriebel.com/connect/">
+  <meta property="og:url" content="https://jackriebel.com/connect">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Jack Riebel | Connect">
   <meta name="twitter:description" content="Leave comments, react to the work, or open public GitHub threads.">
@@ -34,9 +33,9 @@
       </a>
       <div class="site-nav">
         <a href="index.html">About</a>
-        <a href="blogs/">Blogs</a>
-        <a href="repos/">Repos</a>
-        <a class="active" href="connect/">Connect</a>
+        <a href="blogs">Blogs</a>
+        <a href="repos">Repos</a>
+        <a class="active" href="connect">Connect</a>
       </div>
       <a class="site-ghost-btn" href="https://github.com/JackRiebel" target="_blank" rel="noreferrer">GitHub</a>
     </nav>
@@ -95,8 +94,8 @@
     </div>
     <div class="site-footer-links">
       <a href="index.html">About</a>
-      <a href="blogs/">Blogs</a>
-      <a href="repos/">Repos</a>
+      <a href="blogs">Blogs</a>
+      <a href="repos">Repos</a>
     </div>
   </footer>
 
